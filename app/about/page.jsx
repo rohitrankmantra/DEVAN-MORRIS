@@ -238,7 +238,7 @@ export default function AboutPage() {
               <Button
                 asChild
                 size="lg"
-                className="bg-gradient-to-r from-[#D5CE95] to-[#C4B87A] hover:from-[#C4B87A] hover:to-[#B3A76A] text-charcoal rounded-full px-8 h-14"
+                className="bg-linear-to-r from-[#D5CE95] to-[#C4B87A] hover:from-[#C4B87A] hover:to-[#B3A76A] text-charcoal rounded-full px-8 h-14"
               >
                 <Link href="/contact">
                   Become a Partner
@@ -297,14 +297,14 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Image */}
             <div className="story-image relative">
-              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden">
+              <div className="relative aspect-4/5 rounded-3xl overflow-hidden">
                 <Image
                   src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=800&q=80"
                   alt="Our Story"
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/30 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-charcoal/30 to-transparent" />
               </div>
               
               {/* Floating Card */}
@@ -389,7 +389,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section className="values-section py-24 bg-gradient-to-b from-[#D5CE95]/5 to-transparent">
+      <section className="values-section py-24 bg-linear-to-b from-[#D5CE95]/5 to-transparent">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="bg-[#D5CE95]/20 text-[#8B8455] border-[#D5CE95] mb-4">
@@ -412,7 +412,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.3 }}
               >
                 <div className="bg-white rounded-3xl p-8 h-full shadow-sm border border-[#D5CE95]/10 hover:shadow-xl hover:border-[#D5CE95]/30 transition-all duration-500">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#D5CE95]/20 to-[#D5CE95]/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 rounded-2xl bg-linear-to-br from-[#D5CE95]/20 to-[#D5CE95]/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                     <value.icon className="w-8 h-8 text-[#8B8455]" />
                   </div>
                   <h3 className="font-serif text-xl text-charcoal mb-3">{value.title}</h3>
@@ -442,7 +442,7 @@ export default function AboutPage() {
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               {/* Timeline Line */}
-              <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#D5CE95] via-[#D5CE95]/50 to-[#D5CE95]/20 transform md:-translate-x-0.5" />
+              <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-linear-to-b from-[#D5CE95] via-[#D5CE95]/50 to-[#D5CE95]/20 transform md:-translate-x-0.5" />
 
               {milestones.map((milestone, index) => (
                 <div
@@ -479,7 +479,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section className="team-section py-24 bg-gradient-to-b from-transparent via-[#D5CE95]/5 to-transparent">
+      <section className="team-section py-24 bg-linear-to-b from-transparent via-[#D5CE95]/5 to-transparent">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="bg-[#D5CE95]/20 text-[#8B8455] border-[#D5CE95] mb-4">
@@ -502,14 +502,14 @@ export default function AboutPage() {
                 transition={{ duration: 0.3 }}
               >
                 <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-[#D5CE95]/10 hover:shadow-xl hover:border-[#D5CE95]/30 transition-all duration-500">
-                  <div className="relative aspect-[3/4] overflow-hidden">
+                  <div className="relative aspect-3/4 overflow-hidden">
                     <Image
                       src={member.image || "/placeholder.svg"}
                       alt={member.name}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute inset-0 bg-linear-to-t from-charcoal/80 via-charcoal/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="absolute bottom-6 left-6 right-6">
                         <Quote className="w-8 h-8 text-[#D5CE95] mb-2 opacity-70" />
                         <p className="text-white text-sm italic">{member.quote}</p>

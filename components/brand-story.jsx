@@ -87,11 +87,11 @@ export default function BrandStory() {
               <img
                 src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?q=80&w=1287"
                 alt="Luxury beauty products arrangement"
-                className="aspect-[4/5] w-full object-cover"
+                className="aspect-4/5 w-full object-cover"
               />
               
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/30 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-charcoal/30 via-transparent to-transparent" />
               
               {/* Decorative Frame */}
               <div className="absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-3xl border-2 border-luxe-gold/30" />
@@ -125,7 +125,7 @@ export default function BrandStory() {
             
             <h2 className="font-serif text-3xl font-semibold tracking-wide text-charcoal md:text-4xl lg:text-5xl">
               Trusted Partner in
-              <span className="mt-2 block font-[var(--font-great-vibes)] text-4xl text-luxe-gold-dark md:text-5xl">
+              <span className="mt-2 block font-(--font-great-vibes) text-4xl text-luxe-gold-dark md:text-5xl">
                 Luxury Beauty
               </span>
             </h2>

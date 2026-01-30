@@ -92,8 +92,8 @@ export default function MedSpaSection() {
       className="relative overflow-hidden bg-charcoal py-24 md:py-32"
     >
       {/* Abstract Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-charcoal via-[#1a1a1a] to-charcoal" />
-      <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-luxe-gold/30 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-b from-charcoal via-[#1a1a1a] to-charcoal" />
+      <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,var(--tw-gradient-stops))] from-luxe-gold/30 via-transparent to-transparent" />
       
       <div className="relative mx-auto max-w-7xl px-6 lg:px-12">
         {/* Header Section */}
@@ -104,7 +104,7 @@ export default function MedSpaSection() {
             </span>
             <h2 className="font-serif text-4xl font-medium text-ivory md:text-5xl lg:text-6xl">
               Elevate Your <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-luxe-gold to-[#f0e68c]">MedSpa Services</span>
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-luxe-gold to-[#f0e68c]">MedSpa Services</span>
             </h2>
           </div>
           <div className="lg:max-w-md">
@@ -132,7 +132,7 @@ export default function MedSpaSection() {
             >
               {/* Image Container */}
               <div className="relative h-64 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/80 to-transparent z-10" />
                 <Image
                   src={item.image}
                   alt={item.name}

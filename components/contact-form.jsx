@@ -117,7 +117,7 @@ export default function ContactForm() {
           </span>
           <h2 className="font-serif text-3xl font-semibold tracking-wide text-charcoal md:text-4xl lg:text-5xl">
             Request Your
-            <span className="mt-2 block font-[var(--font-great-vibes)] text-4xl text-luxe-gold-dark md:text-5xl">
+            <span className="mt-2 block font-(--font-great-vibes) text-4xl text-luxe-gold-dark md:text-5xl">
               Wholesale Quote
             </span>
           </h2>
