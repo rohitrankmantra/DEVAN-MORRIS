@@ -1,17 +1,17 @@
-'use client'
-
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+ 'use client'
+ import { useState, useEffect } from 'react'
+ import Link from 'next/link'
+ import Image from 'next/image'
+ import { motion, AnimatePresence } from 'framer-motion'
 import { FiMenu, FiX, FiPhone, FiMail, FiMapPin, FiInstagram, FiFacebook, FiTwitter } from 'react-icons/fi'
 
-const navLinks = [
-  { name: 'Home', href: '#' },
-  { name: 'Collections', href: '#categories' },
-  { name: 'Products', href: '#products' },
-  { name: 'MedSpa', href: '#medspa' },
-  { name: 'About', href: '#about' },
-  { name: 'Contact', href: '#contact' },
-]
+ const navLinks = [
+   { name: 'Home', href: '/' },
+   { name: 'Products', href: '/shop' },
+   { name: 'MedSpa', href: '/medspa' },
+   { name: 'About', href: '/about' },
+   { name: 'Contact', href: '/contact' },
+ ]
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -86,17 +86,19 @@ export default function Header() {
             : 'bg-cream/90 backdrop-blur-sm'
         }`}
       >
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+        <div className="mx-auto max-w-7xl px-2 lg:px-8">
           {/* Logo Section - Centered */}
-          <div className="flex items-center justify-center border-b border-luxe-gold/20 py-4">
-            <a href="#" className="flex flex-col items-center gap-1">
-              <span className="font-serif text-3xl font-bold tracking-[0.3em] text-charcoal md:text-4xl">
-                Devan Morris
-              </span>
-              {/* <span className="font-[var(--font-great-vibes)] text-xl text-luxe-gold-dark md:text-2xl">
-                Beauty & Cosmetics
-              </span> */}
-            </a>
+          <div className="flex items-center justify-center border-b border-luxe-gold/20 py-2">
+            <Link href="/" className="flex flex-col items-center gap-1">
+              <Image
+                src="/logo.png"
+                alt="Devan Morris"
+                width={200}
+                height={80}
+                className="h-25 w-full object-contain md:h-33 "
+                priority
+              />
+            </Link>
           </div>
 
           {/* Navigation Section */}
@@ -119,13 +121,13 @@ export default function Header() {
               <div className="flex items-center gap-1">
                 {navLinks.map((link, index) => (
                   <div key={link.name} className="flex items-center">
-                    <a
+                    <Link
                       href={link.href}
                       className="group relative px-5 py-2 font-sans text-sm font-medium tracking-wide text-charcoal transition-colors hover:text-luxe-gold-dark"
                     >
                       {link.name}
                       <span className="absolute bottom-0 left-1/2 h-0.5 w-0 -translate-x-1/2 bg-luxe-gold transition-all duration-300 group-hover:w-full" />
-                    </a>
+                    </Link>
                     {index < navLinks.length - 1 && (
                       <span className="mx-1 text-luxe-gold/30">|</span>
                     )}
@@ -135,14 +137,12 @@ export default function Header() {
             </nav>
 
             {/* CTA Button */}
-            <motion.a
-              href="#contact"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+            <Link
+              href="/contact"
               className="rounded-full bg-gradient-gold px-6 py-2.5 font-sans text-sm font-semibold text-charcoal shadow-md transition-all duration-300 hover:shadow-lg"
             >
               Get Quote
-            </motion.a>
+            </Link>
           </div>
         </div>
       </motion.header>
@@ -165,29 +165,29 @@ export default function Header() {
               className="flex h-full flex-col items-center justify-center gap-6 pt-20"
             >
               {navLinks.map((link, index) => (
-                <motion.a
+                <Link
                   key={link.name}
                   href={link.href}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.15 + index * 0.05 }}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="font-serif text-2xl font-medium tracking-wide text-ivory transition-colors hover:text-luxe-gold"
                 >
-                  {link.name}
-                </motion.a>
+                  <motion.span
+                     initial={{ opacity: 0, y: 20 }}
+                     animate={{ opacity: 1, y: 0 }}
+                     transition={{ delay: 0.15 + index * 0.05 }}
+                  >
+                    {link.name}
+                  </motion.span>
+                </Link>
               ))}
               
-              <motion.a
-                href="#contact"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
+              <Link
+                href="/contact"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="mt-6 rounded-full bg-gradient-gold px-10 py-4 font-sans text-sm font-semibold uppercase tracking-widest text-charcoal"
               >
-                Get Quote
-              </motion.a>
+                 Get Quote
+              </Link>
 
               {/* Mobile Contact Info */}
               <motion.div

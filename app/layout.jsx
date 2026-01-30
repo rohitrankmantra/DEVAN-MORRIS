@@ -1,6 +1,7 @@
 import { Inter, Cinzel, Great_Vibes, Poppins } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
+import { Toaster } from '@/components/ui/toaster'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -45,6 +46,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${inter.variable} ${cinzel.variable} ${greatVibes.variable} ${poppins.variable}`}>
       <body className="font-sans antialiased overflow-x-hidden">
         {children}
+        <Toaster />
         <Analytics />
       </body>
     </html>

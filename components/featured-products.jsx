@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Link from 'next/link'
+
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { FiArrowRight, FiChevronLeft, FiChevronRight, FiHeart, FiEye } from 'react-icons/fi'
@@ -163,15 +165,13 @@ export default function FeaturedProducts() {
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 flex items-end bg-linear-to-t from-charcoal/85 via-charcoal/30 to-transparent opacity-0 transition-opacity duration-400 group-hover:opacity-100">
                     <div className="w-full p-5 md:p-6">
-                      <motion.a
-                        href="#contact"
-                        whileHover={{ scale: 1.03 }}
-                        whileTap={{ scale: 0.97 }}
+                      <Link
+                        href="/contact"
                         className="flex w-full items-center justify-center gap-2 rounded-full bg-gradient-gold py-3 text-sm font-semibold text-charcoal shadow-md"
                       >
                         Contact Us
                         <FiArrowRight className="h-4 w-4" />
-                      </motion.a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -188,13 +188,13 @@ export default function FeaturedProducts() {
                     {product.description}
                   </p>
                   
-                  <a
-                    href="#contact"
+                  <Link
+                    href="/contact"
                     className="mt-4 inline-flex items-center gap-2 font-sans text-sm font-medium text-luxe-gold-dark hover:text-charcoal transition-colors"
                   >
                     Request Quote
                     <FiArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </motion.div>
