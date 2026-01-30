@@ -411,7 +411,7 @@ export default function ShopPage() {
                 {/* Categories */}
                 <div className="bg-white rounded-2xl p-6 shadow-sm border border-[#D5CE95]/20">
                   <h3 className="font-serif text-lg text-charcoal mb-4 flex items-center gap-2">
-                    <span className="w-8 h-[2px] bg-[#D5CE95]" />
+                    <span className="w-8 h-0.5 bg-[#D5CE95]" />
                     Categories
                   </h3>
                   <ul className="space-y-2">
@@ -435,7 +435,7 @@ export default function ShopPage() {
                 {/* Brands */}
                 <div className="bg-white rounded-2xl p-6 shadow-sm border border-[#D5CE95]/20">
                   <h3 className="font-serif text-lg text-charcoal mb-4 flex items-center gap-2">
-                    <span className="w-8 h-[2px] bg-[#D5CE95]" />
+                    <span className="w-8 h-0.5 bg-[#D5CE95]" />
                     Brands
                   </h3>
                   <div className="space-y-3">
@@ -646,7 +646,7 @@ export default function ShopPage() {
                   >
                     <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#D5CE95]/10 hover:shadow-xl hover:border-[#D5CE95]/30 transition-all duration-500">
                       {/* Image */}
-                      <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-[#D5CE95]/5 to-transparent">
+                      <div className="relative aspect-square overflow-hidden bg-linear-to-br from-[#D5CE95]/5 to-transparent">
                         <Image
                           src={product.image || "/placeholder.svg"}
                           alt={product.name}
@@ -674,7 +674,7 @@ export default function ShopPage() {
                         )}
 
                         {/* Hover Actions */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="absolute inset-0 bg-linear-to-t from-charcoal/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           <div className="absolute bottom-4 left-4 right-4 flex gap-2">
                             <Button
                               asChild
@@ -797,7 +797,7 @@ export default function ShopPage() {
           }}
         />
         <div className="absolute inset-0 bg-charcoal/80" />
-        <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/90 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-r from-charcoal via-charcoal/90 to-transparent" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-2xl">

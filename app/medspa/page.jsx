@@ -19,7 +19,7 @@ import { GraduationCap, Wrench, CreditCard } from 'lucide-react'
             fill
             className="object-cover opacity-30"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-white via-white/80 to-white" />
+          <div className="absolute inset-0 bg-linear-to-b from-white via-white/80 to-white" />
         </div>
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">

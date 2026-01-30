@@ -174,12 +174,12 @@ export default function Footer() {
         </div>
 
         {/* Newsletter */}
-        <div className="mt-16 overflow-hidden rounded-3xl border border-luxe-gold/20 bg-gradient-to-r from-luxe-gold/10 via-luxe-gold/5 to-luxe-gold/10 p-8 lg:p-10">
+        <div className="mt-16 overflow-hidden rounded-3xl border border-luxe-gold/20 bg-linear-to-r from-luxe-gold/10 via-luxe-gold/5 to-luxe-gold/10 p-8 lg:p-10">
           <div className="flex flex-col items-center justify-between gap-6 lg:flex-row">
             <div>
               <h3 className="font-serif text-xl font-semibold text-ivory">
                 Stay Updated with
-                <span className="ml-2 font-[var(--font-great-vibes)] text-2xl text-luxe-gold">
+                <span className="ml-2 font-(--font-great-vibes) text-2xl text-luxe-gold">
                   DEVAN MORRIS
                 </span>
               </h3>
@@ -228,7 +228,7 @@ export default function Footer() {
         </div>
 
         {/* Wholesale Partner Program */}
-        <div className="mt-16 overflow-hidden rounded-3xl border border-luxe-gold/20 bg-gradient-to-r from-luxe-gold/10 via-luxe-gold/5 to-luxe-gold/10 p-8 lg:p-12">
+        <div className="mt-16 overflow-hidden rounded-3xl border border-luxe-gold/20 bg-linear-to-r from-luxe-gold/10 via-luxe-gold/5 to-luxe-gold/10 p-8 lg:p-12">
           <div className="mx-auto max-w-4xl text-center">
             <span className="mb-3 inline-block font-sans text-xs font-semibold uppercase tracking-widest text-luxe-gold">
               Wholesale Partner Program

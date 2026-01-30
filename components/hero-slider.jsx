@@ -91,7 +91,7 @@ export default function HeroSlider() {
   const slide = slides[currentSlide]
 
   return (
-    <section className="relative h-[85vh] min-h-[600px] w-full overflow-hidden">
+    <section className="relative h-[85vh] min-h-150 w-full overflow-hidden">
       {/* Background Image with GSAP animation */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -108,8 +108,8 @@ export default function HeroSlider() {
             style={{ backgroundImage: `url(${slide.image})` }}
           />
           {/* Gradient Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-r from-charcoal/80 via-charcoal/50 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-charcoal/20" />
+          <div className="absolute inset-0 bg-linear-to-r from-charcoal/80 via-charcoal/50 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-charcoal/60 via-transparent to-charcoal/20" />
           
           {/* Decorative Pattern Overlay */}
           <div className="absolute inset-0 bg-pattern-diagonal opacity-30" />
@@ -148,7 +148,7 @@ export default function HeroSlider() {
                 {/* Title with highlight */}
                 <h1 className="mb-4 font-serif text-4xl font-semibold tracking-wide text-ivory sm:text-5xl md:text-6xl lg:text-7xl">
                   {slide.title}
-                  <span className="mt-2 block font-[var(--font-great-vibes)] text-5xl font-normal text-luxe-gold sm:text-6xl md:text-7xl lg:text-8xl">
+                  <span className="mt-2 block font-(--font-great-vibes) text-5xl font-normal text-luxe-gold sm:text-6xl md:text-7xl lg:text-8xl">
                     {slide.highlight}
                   </span>
                 </h1>
@@ -239,7 +239,7 @@ export default function HeroSlider() {
       </div>
 
       {/* Bottom gradient transition */}
-      <div className="absolute bottom-0 left-0 h-32 w-full bg-gradient-to-t from-background to-transparent" />
+      <div className="absolute bottom-0 left-0 h-32 w-full bg-linear-to-t from-background to-transparent" />
     </section>
   )
 }
