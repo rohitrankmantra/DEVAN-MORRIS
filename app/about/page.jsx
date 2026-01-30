@@ -219,7 +219,7 @@ export default function AboutPage() {
           }}
         />
 
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="mx-auto max-w-7xl px-6 lg:px-12 relative z-10">
           <div className="hero-content max-w-3xl">
             <Badge className="bg-[#D5CE95]/20 text-[#8B8455] border-[#D5CE95] mb-6">
               <Sparkles className="w-3 h-3 mr-1" />
@@ -293,7 +293,7 @@ export default function AboutPage() {
       {/* Our Story Section */}
       <section ref={storyRef} className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-pattern-luxury" />
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="mx-auto max-w-7xl px-6 lg:px-12 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Image */}
             <div className="story-image relative">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -178,6 +179,66 @@ const products = [
     rating: 4.7,
     reviews: 43,
   },
+  {
+    id: 13,
+    name: "Midnight Bloom Parfum",
+    category: "Fragrances",
+    brand: "LuxeGlow",
+    image: "https://images.unsplash.com/photo-1594035910387-fea477942698?w=600&q=80",
+    badge: "Limited Edition",
+    rating: 5.0,
+    reviews: 84,
+  },
+  {
+    id: 14,
+    name: "Ocean Mist Cologne",
+    category: "Fragrances",
+    brand: "Pure Radiance",
+    image: "https://images.unsplash.com/photo-1523293188086-b431e96000ec?w=600&q=80",
+    badge: null,
+    rating: 4.5,
+    reviews: 120,
+  },
+  {
+    id: 15,
+    name: "Golden Amber Essence",
+    category: "Fragrances",
+    brand: "Aura Beauty",
+    image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=600&q=80",
+    badge: "Best Seller",
+    rating: 4.8,
+    reviews: 215,
+  },
+  {
+    id: 16,
+    name: "Lumiere Pro X1 Laser",
+    category: "MedSpa Equipment",
+    brand: "Derma Elite",
+    image: "https://images.unsplash.com/photo-1629909615184-74f495363b67?w=600&q=80",
+    badge: "Professional",
+    rating: 5.0,
+    reviews: 12,
+  },
+  {
+    id: 17,
+    name: "DermaLift Ultra System",
+    category: "MedSpa Equipment",
+    brand: "Derma Elite",
+    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80",
+    badge: "New",
+    rating: 4.9,
+    reviews: 8,
+  },
+  {
+    id: 18,
+    name: "SculptBody 360",
+    category: "MedSpa Equipment",
+    brand: "LuxeGlow",
+    image: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&q=80",
+    badge: "Trending",
+    rating: 4.8,
+    reviews: 25,
+  },
 ];
 
 export default function ShopPage() {
@@ -190,6 +251,7 @@ export default function ShopPage() {
   const [wishlist, setWishlist] = useState([]);
   const heroRef = useRef(null);
   const productsRef = useRef(null);
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -217,6 +279,16 @@ export default function ShopPage() {
     return () => ctx.revert();
   }, []);
 
+  useEffect(() => {
+    const categoryParam = searchParams?.get("category");
+    if (categoryParam && categories.includes(categoryParam)) {
+      setSelectedCategory(categoryParam);
+    }
+    const brandParam = searchParams?.get("brand");
+    if (brandParam && brands.includes(brandParam)) {
+      setSelectedBrands([brandParam]);
+    }
+  }, [searchParams]);
   const filteredProducts = products.filter((product) => {
     const matchesCategory =
       selectedCategory === "All Products" || product.category === selectedCategory;
@@ -226,6 +298,21 @@ export default function ShopPage() {
       product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       product.category.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesBrand && matchesSearch;
+  });
+
+  const sortedProducts = [...filteredProducts].sort((a, b) => {
+    switch (sortBy) {
+      case "newest":
+        return b.id - a.id;
+      case "rating":
+        return b.rating - a.rating;
+      case "name-asc":
+        return a.name.localeCompare(b.name);
+      case "name-desc":
+        return b.name.localeCompare(a.name);
+      default:
+        return 0;
+    }
   });
 
   const toggleBrand = (brand) => {
@@ -265,7 +352,7 @@ export default function ShopPage() {
           }}
         />
 
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="mx-auto max-w-7xl px-6 lg:px-12 relative z-10">
           <div className="hero-content max-w-3xl">
             <Badge className="bg-[#D5CE95]/20 text-[#8B8455] border-[#D5CE95] mb-4">
               <Sparkles className="w-3 h-3 mr-1" />
@@ -279,7 +366,7 @@ export default function ShopPage() {
               and MedSpa equipment for your business.
             </p>
 
-            {/* Search Bar */}
+            {/* Search Bar
             <div className="flex gap-3 max-w-xl">
               <div className="relative flex-1">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
@@ -297,7 +384,7 @@ export default function ShopPage() {
               >
                 <SlidersHorizontal className="w-5 h-5" />
               </Button>
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -316,7 +403,7 @@ export default function ShopPage() {
 
       {/* Main Content */}
       <section className="py-12">
-        <div className="container mx-auto px-4">
+        <div className="mx-auto max-w-7xl px-6 lg:px-12">
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Sidebar Filters - Desktop */}
             <aside className="hidden lg:block w-72 shrink-0">
@@ -481,7 +568,7 @@ export default function ShopPage() {
                   <span className="text-muted-foreground">
                     Showing{" "}
                     <span className="text-charcoal font-medium">
-                      {filteredProducts.length}
+                      {sortedProducts.length}
                     </span>{" "}
                     products
                   </span>
@@ -549,7 +636,7 @@ export default function ShopPage() {
                     : "grid-cols-2 sm:grid-cols-3 xl:grid-cols-4"
                 }`}
               >
-                {filteredProducts.map((product, index) => (
+                {sortedProducts.map((product, index) => (
                   <motion.div
                     key={product.id}
                     className="product-card group"
@@ -687,7 +774,7 @@ export default function ShopPage() {
                   <Button
                     variant="outline"
                     size="lg"
-                    className="border-[#D5CE95] text-charcoal hover:bg-[#D5CE95]/10 rounded-full px-8 bg-transparent"
+                    className="border-[#D5CE95] text-charcoal hover:bg-[#D5CE95]/10 hover:text-black rounded-full px-8 bg-transparent"
                   >
                     Load More Products
                     <ArrowRight className="w-4 h-4 ml-2" />

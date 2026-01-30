@@ -4,79 +4,83 @@ import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { FiZap, FiStar, FiShield, FiArrowRight, FiHeart } from 'react-icons/fi'
+import { FiActivity, FiCpu, FiShield, FiArrowRight, FiCheckCircle } from 'react-icons/fi'
+import Image from 'next/image'
+import Link from 'next/link'
 
 gsap.registerPlugin(ScrollTrigger)
+
+const features = [
+  'FDA Approved Technology',
+  '24/7 Technical Support',
+  'Comprehensive Training',
+  '2-Year Warranty'
+]
 
 const equipment = [
   {
     id: 1,
-    name: 'Laser Hair Removal Systems',
-    description: 'Professional-grade diode and IPL devices for permanent hair reduction',
-    icon: FiZap,
+    name: 'Laser Hair Removal',
+    model: 'Lumiere Pro X1',
+    description: 'Advanced diode laser technology for painless and effective permanent hair reduction on all skin types.',
+    specs: ['808nm Wavelength', 'Cooling System', 'Touch Interface'],
     image: 'https://images.unsplash.com/photo-1629909615184-74f495363b67?q=80&w=1169',
   },
   {
     id: 2,
-    name: 'Skin Rejuvenation Devices',
-    description: 'RF, microneedling, and LED therapy equipment for anti-aging treatments',
-    icon: FiStar,
+    name: 'Skin Rejuvenation',
+    model: 'DermaLift Ultra',
+    description: 'Multi-functional platform combining RF microneedling and LED therapy for superior anti-aging results.',
+    specs: ['Radio Frequency', 'Microneedling', 'LED Therapy'],
     image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=1170',
   },
   {
     id: 3,
-    name: 'Premium Skincare Packages',
-    description: 'Curated professional-use skincare lines for clinical treatments',
-    icon: FiShield,
+    name: 'Body Contouring',
+    model: 'SculptBody 360',
+    description: 'Non-invasive body sculpting device utilizing cryolipolysis and EMS for fat reduction and muscle toning.',
+    specs: ['Cryolipolysis', 'EMS Technology', '4 Applicators'],
     image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=735',
   },
 ]
 
 export default function MedSpaSection() {
   const sectionRef = useRef(null)
-  const headingRef = useRef(null)
+  const headerRef = useRef(null)
   const cardsRef = useRef([])
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      if (headingRef.current) {
-        gsap.fromTo(
-          headingRef.current,
-          { y: 50, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: headingRef.current,
-              start: 'top 80%',
-              toggleActions: 'play none none reverse',
-            },
+      // Header Animation
+      gsap.fromTo(headerRef.current,
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: headerRef.current,
+            start: 'top 80%',
           }
-        )
-      }
-
-      cardsRef.current.forEach((card, index) => {
-        if (card) {
-          gsap.fromTo(
-            card,
-            { y: 60, opacity: 0 },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 0.6,
-              delay: index * 0.15,
-              ease: 'power3.out',
-              scrollTrigger: {
-                trigger: card,
-                start: 'top 85%',
-                toggleActions: 'play none none reverse',
-              },
-            }
-          )
         }
-      })
+      )
+
+      // Cards Animation
+      gsap.fromTo(cardsRef.current,
+        { y: 100, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: cardsRef.current[0],
+            start: 'top 85%',
+          }
+        }
+      )
     }, sectionRef)
 
     return () => ctx.revert()
@@ -85,113 +89,102 @@ export default function MedSpaSection() {
   return (
     <section 
       ref={sectionRef}
-      className="relative overflow-hidden bg-charcoal py-20 md:py-28"
+      className="relative overflow-hidden bg-charcoal py-24 md:py-32"
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-pattern-dots opacity-10" />
-      <div className="absolute inset-0 bg-gradient-to-b from-charcoal via-charcoal/95 to-charcoal" />
-
-      {/* Decorative Elements */}
-      <div className="absolute -left-32 top-1/4 h-64 w-64 rounded-full border border-luxe-gold/10" />
-      <div className="absolute -right-32 bottom-1/4 h-80 w-80 rounded-full border border-luxe-gold/10" />
-
+      {/* Abstract Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-charcoal via-[#1a1a1a] to-charcoal" />
+      <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-luxe-gold/30 via-transparent to-transparent" />
+      
       <div className="relative mx-auto max-w-7xl px-6 lg:px-12">
-        {/* Section Header */}
-        <div ref={headingRef} className="mb-16 text-center">
-          <span className="mb-4 inline-flex items-center gap-2 rounded-full bg-luxe-gold/20 px-4 py-2 font-sans text-xs font-medium uppercase tracking-widest text-luxe-gold">
-            <FiHeart className="h-3 w-3" />
-            Professional
-          </span>
-          <h2 className="font-serif text-3xl font-semibold tracking-wide text-ivory md:text-4xl lg:text-5xl">
-            MedSpa & Skincare
-            <span className="mt-2 block font-[var(--font-great-vibes)] text-4xl text-luxe-gold md:text-5xl">
-              Excellence
+        {/* Header Section */}
+        <div ref={headerRef} className="mb-20 grid gap-12 lg:grid-cols-2 lg:items-end">
+          <div>
+            <span className="mb-4 block font-sans text-sm font-bold uppercase tracking-[0.2em] text-luxe-gold">
+              Professional Equipment
             </span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl font-sans text-ivory/70">
-            Equip your clinic with cutting-edge aesthetic technology and premium skincare products. 
-            We supply the industry&apos;s most trusted brands.
-          </p>
+            <h2 className="font-serif text-4xl font-medium text-ivory md:text-5xl lg:text-6xl">
+              Elevate Your <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-luxe-gold to-[#f0e68c]">MedSpa Services</span>
+            </h2>
+          </div>
+          <div className="lg:max-w-md">
+            <p className="mb-8 font-sans text-lg text-ivory/70 leading-relaxed">
+              Equip your clinic with industry-leading technology designed for performance, safety, and exceptional patient outcomes.
+            </p>
+            <div className="grid grid-cols-2 gap-4">
+              {features.map((feature, i) => (
+                <div key={i} className="flex items-center gap-2 text-sm text-luxe-gold/90">
+                  <FiCheckCircle className="shrink-0" />
+                  <span>{feature}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Equipment Grid */}
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {equipment.map((item, index) => (
-            <motion.div
+            <div
               key={item.id}
               ref={el => cardsRef.current[index] = el}
-              className="group"
-              whileHover={{ y: -8 }}
-              transition={{ duration: 0.3 }}
+              className="group relative flex flex-col overflow-hidden rounded-2xl bg-white/5 border border-white/10 transition-all duration-500 hover:-translate-y-2 hover:bg-white/10 hover:border-luxe-gold/30"
             >
-              <div className="relative h-full overflow-hidden rounded-3xl border border-luxe-gold/20 bg-ivory/5 backdrop-blur-sm transition-all duration-300 group-hover:border-luxe-gold/40 group-hover:bg-ivory/10">
-                {/* Image */}
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <img
-                    src={item.image || "/placeholder.svg"}
-                    alt={item.name}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/40 to-transparent" />
-                  
-                  {/* Badge */}
-                  <div className="absolute left-4 top-4">
-                    <span className="rounded-full bg-luxe-gold px-3 py-1 font-sans text-xs font-semibold text-charcoal">
-                      Professional
-                    </span>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-luxe-gold/20">
-                    <item.icon className="h-5 w-5 text-luxe-gold" />
-                  </div>
-                  
-                  <h3 className="font-serif text-xl font-semibold text-ivory transition-colors group-hover:text-luxe-gold">
-                    {item.name}
-                  </h3>
-                  
-                  <p className="mt-2 font-sans text-sm text-ivory/70">
-                    {item.description}
-                  </p>
-                  
-                  {/* CTA */}
-                  <motion.a
-                    href="#contact"
-                    whileHover={{ x: 5 }}
-                    className="mt-4 inline-flex items-center gap-2 text-luxe-gold"
-                  >
-                    <span className="font-sans text-sm font-medium">Contact Us</span>
-                    <FiArrowRight className="h-4 w-4" />
-                  </motion.a>
+              {/* Image Container */}
+              <div className="relative h-64 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10" />
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute bottom-4 left-4 z-20">
+                  <span className="inline-block rounded-full bg-luxe-gold/20 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-luxe-gold backdrop-blur-sm border border-luxe-gold/20">
+                    {item.model}
+                  </span>
                 </div>
               </div>
-            </motion.div>
+
+              {/* Content */}
+              <div className="flex flex-1 flex-col p-6">
+                <h3 className="mb-2 font-serif text-2xl text-ivory group-hover:text-luxe-gold transition-colors">
+                  {item.name}
+                </h3>
+                <p className="mb-6 flex-1 text-sm text-ivory/60 leading-relaxed">
+                  {item.description}
+                </p>
+
+                {/* Specs */}
+                <div className="mb-6 flex flex-wrap gap-2">
+                  {item.specs.map((spec, i) => (
+                    <span key={i} className="text-xs text-ivory/40 bg-white/5 px-2 py-1 rounded">
+                      {spec}
+                    </span>
+                  ))}
+                </div>
+
+                <Link
+                  href="/shop?category=MedSpa%20Equipment"
+                  className="group/btn flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-luxe-gold transition-all"
+                >
+                  View Details
+                  <FiArrowRight className="transition-transform group-hover/btn:translate-x-1" />
+                </Link>
+              </div>
+            </div>
           ))}
         </div>
 
-        {/* Bottom CTA Banner */}
-        <div className="mt-16 overflow-hidden rounded-3xl border border-luxe-gold/20 bg-gradient-to-r from-luxe-gold/10 via-luxe-gold/5 to-luxe-gold/10 p-8 md:p-12">
-          <div className="flex flex-col items-center justify-between gap-6 text-center md:flex-row md:text-left">
-            <div>
-              <h3 className="font-serif text-2xl font-semibold text-ivory md:text-3xl">
-                Ready to Upgrade Your Clinic?
-              </h3>
-              <p className="mt-2 font-sans text-ivory/70">
-                Get exclusive wholesale pricing on professional-grade equipment.
-              </p>
-            </div>
-            <motion.a
-              href="#contact"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex shrink-0 items-center gap-2 rounded-full bg-gradient-gold px-10 py-4 font-sans text-sm font-semibold uppercase tracking-widest text-charcoal shadow-lg transition-all duration-300 hover:shadow-xl"
-            >
-              Request Catalog
-              <FiArrowRight className="h-4 w-4" />
-            </motion.a>
-          </div>
+        {/* Bottom CTA */}
+        <div className="mt-20 text-center">
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-3 rounded-full bg-luxe-gold px-8 py-4 font-sans text-sm font-bold uppercase tracking-widest text-charcoal transition-all hover:bg-white hover:scale-105"
+          >
+            Request Catalog
+            <FiArrowRight />
+          </Link>
         </div>
       </div>
     </section>
