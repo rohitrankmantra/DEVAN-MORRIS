@@ -148,7 +148,7 @@ export default function HeroSlider() {
                 {/* Title with highlight */}
                 <h1 className="mb-4 font-serif text-4xl font-semibold tracking-wide text-ivory sm:text-5xl md:text-6xl lg:text-7xl">
                   {slide.title}
-                  <span className="mt-2 block font-(--font-great-vibes) text-5xl font-normal text-luxe-gold sm:text-6xl md:text-7xl lg:text-8xl">
+                  <span className="mt-2 block font-(--font-great-vibes) text-5xl text-luxe-gold sm:text-6xl md:text-7xl lg:text-8xl">
                     {slide.highlight}
                   </span>
                 </h1>
@@ -174,7 +174,7 @@ export default function HeroSlider() {
                     href="#contact"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-gold px-8 py-4 font-sans text-sm font-semibold uppercase tracking-widest text-charcoal shadow-lg transition-all duration-300 hover:shadow-xl"
+                    className="group inline-flex items-center justify-center gap-2 rounded-full bg-linear-gold px-8 py-4 font-sans text-sm font-semibold uppercase tracking-widest text-charcoal shadow-lg transition-all duration-300 hover:shadow-xl"
                   >
                     Contact Us for Quote
                     <FiArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

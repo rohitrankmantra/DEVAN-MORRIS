@@ -23,8 +23,6 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -195,12 +193,11 @@ export default function AboutPage() {
 
   return (
     <main className="min-h-screen bg-background">
-      <Header />
 
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative pt-32 pb-24 overflow-hidden"
+        className="relative pt-24 md:pt-32 pb-16 md:pb-24 overflow-hidden"
         style={{
           background: `linear-gradient(135deg, rgba(213, 206, 149, 0.2) 0%, rgba(255, 255, 255, 0.95) 50%, rgba(213, 206, 149, 0.15) 100%)`,
         }}
@@ -219,17 +216,17 @@ export default function AboutPage() {
           }}
         />
 
-        <div className="mx-auto max-w-7xl px-6 lg:px-12 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="hero-content max-w-3xl">
             <Badge className="bg-[#D5CE95]/20 text-[#8B8455] border-[#D5CE95] mb-6">
               <Sparkles className="w-3 h-3 mr-1" />
               Our Story
             </Badge>
-            <h1 className="font-serif text-5xl md:text-7xl text-charcoal mb-6 text-balance">
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-charcoal mb-6 text-balance">
               Empowering Beauty{" "}
               <span className="text-gradient-gold">Professionals</span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed max-w-2xl">
+            <p className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed max-w-2xl">
               For over 15 years, we have been the trusted partner for beauty salons, 
               spas, and MedSpa clinics worldwide, providing premium wholesale beauty 
               products and professional equipment.
@@ -238,7 +235,7 @@ export default function AboutPage() {
               <Button
                 asChild
                 size="lg"
-                className="bg-linear-to-r from-[#D5CE95] to-[#C4B87A] hover:from-[#C4B87A] hover:to-[#B3A76A] text-charcoal rounded-full px-8 h-14"
+                className="bg-linear-to-r from-[#D5CE95] to-[#C4B87A] hover:from-[#C4B87A] hover:to-[#B3A76A] text-charcoal rounded-full px-6 sm:px-8 h-12 sm:h-14"
               >
                 <Link href="/contact">
                   Become a Partner
@@ -249,9 +246,9 @@ export default function AboutPage() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-[#D5CE95] text-charcoal hover:bg-[#D5CE95]/10 rounded-full px-8 h-14 bg-transparent"
+                className="border-[#D5CE95] text-charcoal hover:bg-[#D5CE95]/10 rounded-full px-6 sm:px-8 h-12 sm:h-14 bg-transparent"
               >
-                <Link href="/shop">Explore Products</Link>
+                <Link href="/shops">Explore Products</Link>
               </Button>
             </div>
           </div>
@@ -259,31 +256,31 @@ export default function AboutPage() {
 
         {/* Floating Elements */}
         <motion.div
-          className="absolute bottom-20 right-32 w-24 h-24 rounded-full bg-[#D5CE95]/20 hidden lg:block"
+          className="absolute bottom-16 sm:bottom-20 right-10 sm:right-32 w-16 sm:w-24 h-16 sm:h-24 rounded-full bg-[#D5CE95]/20 hidden lg:block"
           animate={{ y: [0, -20, 0] }}
           transition={{ duration: 5, repeat: Infinity }}
         />
         <motion.div
-          className="absolute top-40 right-60 w-16 h-16 rounded-full bg-rose-200/30 hidden lg:block"
+          className="absolute top-32 sm:top-40 right-40 sm:right-60 w-12 sm:w-16 h-12 sm:h-16 rounded-full bg-rose-200/30 hidden lg:block"
           animate={{ y: [0, 15, 0] }}
           transition={{ duration: 4, repeat: Infinity }}
         />
       </section>
 
       {/* Stats Section */}
-      <section ref={statsRef} className="py-16 bg-charcoal relative overflow-hidden">
+      <section ref={statsRef} className="py-12 md:py-16 bg-charcoal relative overflow-hidden">
         <div className="absolute inset-0 bg-pattern-diagonal opacity-10" />
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="stat-item text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-[#D5CE95]/20 flex items-center justify-center">
-                  <stat.icon className="w-8 h-8 text-[#D5CE95]" />
+                <div className="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-4 rounded-2xl bg-[#D5CE95]/20 flex items-center justify-center">
+                  <stat.icon className="w-7 h-7 sm:w-8 sm:h-8 text-[#D5CE95]" />
                 </div>
-                <div className="text-4xl md:text-5xl font-serif text-[#D5CE95] mb-2">
+                <div className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#D5CE95] mb-2">
                   {stat.number}
                 </div>
-                <div className="text-white/70">{stat.label}</div>
+                <div className="text-white/70 text-sm sm:text-base">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -291,10 +288,10 @@ export default function AboutPage() {
       </section>
 
       {/* Our Story Section */}
-      <section ref={storyRef} className="py-24 relative overflow-hidden">
+      <section ref={storyRef} className="py-16 md:py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-pattern-luxury" />
-        <div className="mx-auto max-w-7xl px-6 lg:px-12 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Image */}
             <div className="story-image relative">
               <div className="relative aspect-4/5 rounded-3xl overflow-hidden">
@@ -309,28 +306,28 @@ export default function AboutPage() {
               
               {/* Floating Card */}
               <motion.div
-                className="absolute -bottom-8 -right-8 bg-white rounded-2xl p-6 shadow-xl border border-[#D5CE95]/20 max-w-xs hidden md:block"
+                className="absolute -bottom-6 -right-6 sm:-bottom-8 sm:-right-8 bg-white rounded-2xl p-5 sm:p-6 shadow-xl border border-[#D5CE95]/20 max-w-60 sm:max-w-xs hidden md:block"
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity }}
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-12 h-12 rounded-full bg-[#D5CE95]/20 flex items-center justify-center">
-                    <Award className="w-6 h-6 text-[#8B8455]" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#D5CE95]/20 flex items-center justify-center">
+                    <Award className="w-5 h-5 sm:w-6 sm:h-6 text-[#8B8455]" />
                   </div>
                   <div>
-                    <div className="font-serif text-lg text-charcoal">Certified</div>
-                    <div className="text-sm text-muted-foreground">Quality Supplier</div>
+                    <div className="font-serif text-base sm:text-lg text-charcoal">Certified</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">Quality Supplier</div>
                   </div>
                 </div>
                 <div className="flex gap-1">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-[#D5CE95] text-[#D5CE95]" />
+                    <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-[#D5CE95] text-[#D5CE95]" />
                   ))}
                 </div>
               </motion.div>
 
               {/* Decorative Element */}
-              <div className="absolute -top-8 -left-8 w-32 h-32 rounded-full border-4 border-[#D5CE95]/30 hidden lg:block" />
+              <div className="absolute -top-6 -left-6 sm:-top-8 sm:-left-8 w-24 h-24 sm:w-32 sm:h-32 rounded-full border-4 border-[#D5CE95]/30 hidden lg:block" />
             </div>
 
             {/* Content */}
@@ -338,10 +335,10 @@ export default function AboutPage() {
               <Badge className="bg-[#D5CE95]/20 text-[#8B8455] border-[#D5CE95] mb-4">
                 Est. 2008
               </Badge>
-              <h2 className="font-serif text-4xl md:text-5xl text-charcoal mb-6">
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal mb-6">
                 A Legacy of <span className="text-gradient-gold">Excellence</span>
               </h2>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <div className="space-y-4 text-muted-foreground leading-relaxed text-sm sm:text-base">
                 <p>
                   Founded in 2008 by Isabella Romano, LuxeBeauty Wholesale began with a 
                   simple mission: to provide beauty professionals with access to premium 
@@ -370,15 +367,15 @@ export default function AboutPage() {
                   ].map((src, i) => (
                     <div
                       key={i}
-                      className="w-12 h-12 rounded-full border-2 border-white overflow-hidden"
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-white overflow-hidden"
                     >
                       <Image src={src || "/placeholder.svg"} alt="Team" width={48} height={48} className="object-cover" />
                     </div>
                   ))}
                 </div>
                 <div>
-                  <div className="text-charcoal font-medium">Led by Experts</div>
-                  <div className="text-sm text-muted-foreground">
+                  <div className="text-charcoal font-medium text-sm sm:text-base">Led by Experts</div>
+                  <div className="text-xs sm:text-sm text-muted-foreground">
                     Industry veterans with 50+ years combined experience
                   </div>
                 </div>
@@ -389,21 +386,21 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section className="values-section py-24 bg-linear-to-b from-[#D5CE95]/5 to-transparent">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+      <section className="values-section py-16 md:py-24 bg-linear-to-b from-[#D5CE95]/5 to-transparent">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 md:mb-16">
             <Badge className="bg-[#D5CE95]/20 text-[#8B8455] border-[#D5CE95] mb-4">
               What Drives Us
             </Badge>
-            <h2 className="font-serif text-4xl md:text-5xl text-charcoal mb-4">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal mb-4">
               Our Core <span className="text-gradient-gold">Values</span>
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base">
               These principles guide everything we do, from product selection to partner relationships.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {values.map((value, index) => (
               <motion.div
                 key={index}
@@ -411,11 +408,11 @@ export default function AboutPage() {
                 whileHover={{ y: -8 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="bg-white rounded-3xl p-8 h-full shadow-sm border border-[#D5CE95]/10 hover:shadow-xl hover:border-[#D5CE95]/30 transition-all duration-500">
-                  <div className="w-16 h-16 rounded-2xl bg-linear-to-br from-[#D5CE95]/20 to-[#D5CE95]/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <value.icon className="w-8 h-8 text-[#8B8455]" />
+                <div className="bg-white rounded-3xl p-6 sm:p-8 h-full shadow-sm border border-[#D5CE95]/10 hover:shadow-xl hover:border-[#D5CE95]/30 transition-all duration-500">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-linear-to-br from-[#D5CE95]/20 to-[#D5CE95]/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <value.icon className="w-7 h-7 sm:w-8 sm:h-8 text-[#8B8455]" />
                   </div>
-                  <h3 className="font-serif text-xl text-charcoal mb-3">{value.title}</h3>
+                  <h3 className="font-serif text-lg sm:text-xl text-charcoal mb-3">{value.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
                     {value.description}
                   </p>
@@ -427,14 +424,14 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline Section */}
-      <section className="timeline-section py-24 relative overflow-hidden">
+      <section className="timeline-section py-16 md:py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-pattern-dots opacity-30" />
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-12 md:mb-16">
             <Badge className="bg-[#D5CE95]/20 text-[#8B8455] border-[#D5CE95] mb-4">
               Our Journey
             </Badge>
-            <h2 className="font-serif text-4xl md:text-5xl text-charcoal">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal">
               Key <span className="text-gradient-gold">Milestones</span>
             </h2>
           </div>
@@ -447,7 +444,7 @@ export default function AboutPage() {
               {milestones.map((milestone, index) => (
                 <div
                   key={index}
-                  className={`timeline-item relative flex items-center gap-8 mb-12 last:mb-0 ${
+                  className={`timeline-item relative flex items-center gap-6 md:gap-8 mb-10 md:mb-12 last:mb-0 ${
                     index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                   }`}
                 >
@@ -455,15 +452,15 @@ export default function AboutPage() {
                   <div className="absolute left-8 md:left-1/2 w-4 h-4 rounded-full bg-[#D5CE95] border-4 border-white shadow-lg transform -translate-x-1/2 z-10" />
 
                   {/* Content */}
-                  <div className={`flex-1 pl-20 md:pl-0 ${index % 2 === 0 ? "md:pr-16 md:text-right" : "md:pl-16"}`}>
-                    <div className="bg-white rounded-2xl p-6 shadow-sm border border-[#D5CE95]/20 inline-block">
-                      <div className="text-[#D5CE95] font-serif text-2xl mb-2">
+                  <div className={`flex-1 pl-16 md:pl-0 ${index % 2 === 0 ? "md:pr-12 lg:pr-16 md:text-right" : "md:pl-12 lg:pl-16"}`}>
+                    <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-[#D5CE95]/20 inline-block">
+                      <div className="text-[#D5CE95] font-serif text-xl sm:text-2xl mb-2">
                         {milestone.year}
                       </div>
-                      <h3 className="font-serif text-xl text-charcoal mb-2">
+                      <h3 className="font-serif text-lg sm:text-xl text-charcoal mb-2">
                         {milestone.title}
                       </h3>
-                      <p className="text-muted-foreground text-sm">
+                      <p className="text-muted-foreground text-xs sm:text-sm">
                         {milestone.description}
                       </p>
                     </div>
@@ -479,21 +476,21 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section className="team-section py-24 bg-linear-to-b from-transparent via-[#D5CE95]/5 to-transparent">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+      <section className="team-section py-16 md:py-24 bg-linear-to-b from-transparent via-[#D5CE95]/5 to-transparent">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 md:mb-16">
             <Badge className="bg-[#D5CE95]/20 text-[#8B8455] border-[#D5CE95] mb-4">
               Meet the Team
             </Badge>
-            <h2 className="font-serif text-4xl md:text-5xl text-charcoal mb-4">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal mb-4">
               The People Behind <span className="text-gradient-gold">Our Success</span>
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base">
               Our dedicated team of beauty industry experts is here to support your business.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {team.map((member, index) => (
               <motion.div
                 key={index}
@@ -510,15 +507,15 @@ export default function AboutPage() {
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-charcoal/80 via-charcoal/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="absolute bottom-6 left-6 right-6">
-                        <Quote className="w-8 h-8 text-[#D5CE95] mb-2 opacity-70" />
-                        <p className="text-white text-sm italic">{member.quote}</p>
+                      <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
+                        <Quote className="w-6 h-6 sm:w-8 sm:h-8 text-[#D5CE95] mb-2 opacity-70" />
+                        <p className="text-white text-xs sm:text-sm italic">{member.quote}</p>
                       </div>
                     </div>
                   </div>
-                  <div className="p-6 text-center">
-                    <h3 className="font-serif text-xl text-charcoal mb-1">{member.name}</h3>
-                    <p className="text-[#D5CE95] text-sm font-medium">{member.role}</p>
+                  <div className="p-5 sm:p-6 text-center">
+                    <h3 className="font-serif text-lg sm:text-xl text-charcoal mb-1">{member.name}</h3>
+                    <p className="text-[#D5CE95] text-xs sm:text-sm font-medium">{member.role}</p>
                   </div>
                 </div>
               </motion.div>
@@ -527,64 +524,93 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-24 bg-charcoal relative overflow-hidden">
+      {/* Why Choose Us - Enhanced CTA Section */}
+      <section className="py-16 md:py-24 bg-charcoal relative overflow-hidden">
         <div className="absolute inset-0 bg-pattern-diagonal opacity-10" />
+        
+        {/* Enhanced Full Background Image */}
         <div
-          className="absolute right-0 top-0 w-1/2 h-full opacity-20"
+          className="absolute inset-0 opacity-15"
           style={{
-            backgroundImage: `url("https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=1200&q=80")`,
+            backgroundImage: `url("https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=1600&q=80")`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            maskImage: "linear-gradient(to left, black, transparent)",
-            WebkitMaskImage: "linear-gradient(to left, black, transparent)",
+            backgroundBlendMode: "overlay",
           }}
         />
+        
+        {/* Subtle Gradient Overlay */}
+        <div className="absolute inset-0 bg-charcoal/70" />
 
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl">
-            <Badge className="bg-[#D5CE95]/20 text-[#D5CE95] border-[#D5CE95]/30 mb-6">
-              Why Partner With Us
-            </Badge>
-            <h2 className="font-serif text-4xl md:text-5xl text-white mb-8">
-              The LuxeBeauty <span className="text-[#D5CE95]">Advantage</span>
-            </h2>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div>
+              <Badge className="bg-[#D5CE95]/20 text-[#D5CE95] border-[#D5CE95]/30 mb-6">
+                Why Partner With Us
+              </Badge>
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white mb-6">
+                The LuxeBeauty <span className="text-[#D5CE95]">Advantage</span>
+              </h2>
+              <p className="text-white/80 mb-8 text-base sm:text-lg max-w-xl">
+                Join thousands of beauty professionals who trust us for premium products, 
+                exceptional service, and real business growth.
+              </p>
 
-            <div className="grid sm:grid-cols-2 gap-6">
-              {[
-                { icon: CheckCircle, text: "100% Authentic Products Guaranteed" },
-                { icon: Truck, text: "Fast Worldwide Shipping" },
-                { icon: Clock, text: "Dedicated Account Manager" },
-                { icon: Building2, text: "Competitive Wholesale Pricing" },
-                { icon: Shield, text: "Secure Payment Options" },
-                { icon: Award, text: "Industry-Leading Support" },
-              ].map((item, index) => (
-                <div key={index} className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#D5CE95]/20 flex items-center justify-center shrink-0">
-                    <item.icon className="w-6 h-6 text-[#D5CE95]" />
+              <div className="grid sm:grid-cols-2 gap-6">
+                {[
+                  { icon: CheckCircle, text: "100% Authentic Products Guaranteed" },
+                  { icon: Truck, text: "Fast Worldwide Shipping" },
+                  { icon: Clock, text: "Dedicated Account Manager" },
+                  { icon: Building2, text: "Competitive Wholesale Pricing" },
+                  { icon: Shield, text: "Secure Payment Options" },
+                  { icon: Award, text: "Industry-Leading Support" },
+                ].map((item, index) => (
+                  <div key={index} className="flex items-center gap-4">
+                    <div className="w-10  sm:w-12 h-12 rounded-xl bg-[#D5CE95]/20 flex items-center justify-center shrink-0">
+                      <item.icon className="w-5  sm:w-6 h-6 text-[#D5CE95]" />
+                    </div>
+                    <span className="text-white/90 text-sm sm:text-base">{item.text}</span>
                   </div>
-                  <span className="text-white/90">{item.text}</span>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
 
-            <div className="mt-12">
-              <Button
-                asChild
-                size="lg"
-                className="bg-[#D5CE95] hover:bg-[#C4B87A] text-charcoal rounded-full px-8 h-14"
-              >
-                <Link href="/contact">
-                  Start Your Partnership
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
+            {/* Right CTA */}
+            <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-10 border border-[#D5CE95]/20 shadow-2xl">
+              <h3 className="font-serif text-2xl sm:text-3xl text-white mb-6">
+                Ready to Elevate Your Business?
+              </h3>
+              <p className="text-white/80 mb-8 text-sm sm:text-base">
+                Get exclusive wholesale access, personalized quotes, and dedicated support today.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-[#D5CE95] hover:bg-[#C4B87A] text-charcoal rounded-full px-6 sm:px-8 h-12 sm:h-14"
+                >
+                  <Link href="/contact">
+                    Start Partnership
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="border-[#D5CE95] text-[#D5CE95] hover:bg-[#D5CE95]/10 rounded-full px-6 sm:px-8 h-12 sm:h-14"
+                >
+                  <Link href="/shops">
+                    Browse Catalog
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <Footer />
     </main>
   );
 }

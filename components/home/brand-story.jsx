@@ -9,7 +9,7 @@ import { FiCheck, FiArrowRight, FiAward, FiTruck, FiUsers, FiShield } from 'reac
 gsap.registerPlugin(ScrollTrigger)
 
 const trustPoints = [
-  { text: 'Over 15 years of wholesale expertise', icon: FiAward },
+  { text: 'Over 3 years of wholesale expertise', icon: FiAward },
   { text: 'Premium quality assurance guaranteed', icon: FiShield },
   { text: 'Trusted by 500+ beauty professionals', icon: FiUsers },
   { text: 'Fast worldwide shipping available', icon: FiTruck },
@@ -131,7 +131,7 @@ export default function BrandStory() {
             </h2>
             
             <p className="mt-6 font-sans text-lg leading-relaxed text-muted-foreground">
-              For over a decade, we have been the premier wholesale destination for beauty professionals 
+              For over 3 Years, we have been the premier wholesale destination for beauty professionals 
               and MedSpa clinics worldwide. Our commitment to quality, authenticity, and exceptional 
               service has made us the trusted choice for discerning buyers.
             </p>
@@ -173,7 +173,7 @@ export default function BrandStory() {
                 href="#contact"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-gold px-8 py-4 font-sans text-sm font-semibold uppercase tracking-widest text-charcoal shadow-md transition-all duration-300 hover:shadow-lg"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-linear-gold px-8 py-4 font-sans text-sm font-semibold uppercase tracking-widest text-charcoal shadow-md transition-all duration-300 hover:shadow-lg"
               >
                 Partner With Us
                 <FiArrowRight className="h-4 w-4" />

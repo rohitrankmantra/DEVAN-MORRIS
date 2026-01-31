@@ -1,10 +1,9 @@
+// app/shop/ShopClient.jsx (Full Updated Client Component)
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -21,6 +20,10 @@ import {
   Star,
   ArrowRight,
   SlidersHorizontal,
+  ShieldCheck,
+  Truck,
+  Users,
+  Clock,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -33,215 +36,10 @@ import {
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
 
-gsap.registerPlugin(ScrollTrigger);
+import { products, categories, brands } from "@/data/products"; // Import all data
 
-const categories = [
-  "All Products",
-  "Skincare",
-  "Makeup",
-  "Hair Care",
-  "Body Care",
-  "Fragrances",
-  "Tools & Accessories",
-  "MedSpa Equipment",
-];
-
-const brands = [
-  "LuxeGlow",
-  "Derma Elite",
-  "Velvet Touch",
-  "Pure Radiance",
-  "Aura Beauty",
-  "Silk & Satin",
-];
-
-const products = [
-  {
-    id: 1,
-    name: "Luxury Hydrating Serum",
-    category: "Skincare",
-    brand: "LuxeGlow",
-    image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&q=80",
-    badge: "Best Seller",
-    rating: 4.9,
-    reviews: 128,
-  },
-  {
-    id: 2,
-    name: "Professional Makeup Palette",
-    category: "Makeup",
-    brand: "Velvet Touch",
-    image: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600&q=80",
-    badge: "New",
-    rating: 4.8,
-    reviews: 89,
-  },
-  {
-    id: 3,
-    name: "Keratin Hair Treatment",
-    category: "Hair Care",
-    brand: "Silk & Satin",
-    image: "https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=600&q=80",
-    badge: null,
-    rating: 4.7,
-    reviews: 56,
-  },
-  {
-    id: 4,
-    name: "Anti-Aging Night Cream",
-    category: "Skincare",
-    brand: "Derma Elite",
-    image: "https://images.unsplash.com/photo-1570194065650-d99fb4b38b15?w=600&q=80",
-    badge: "Popular",
-    rating: 4.9,
-    reviews: 234,
-  },
-  {
-    id: 5,
-    name: "Volumizing Mascara Set",
-    category: "Makeup",
-    brand: "Aura Beauty",
-    image: "https://images.unsplash.com/photo-1631214540553-ff044a3ff1d4?w=600&q=80",
-    badge: null,
-    rating: 4.6,
-    reviews: 67,
-  },
-  {
-    id: 6,
-    name: "Body Sculpting Oil",
-    category: "Body Care",
-    brand: "Pure Radiance",
-    image: "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&q=80",
-    badge: "Trending",
-    rating: 4.8,
-    reviews: 145,
-  },
-  {
-    id: 7,
-    name: "Signature Eau de Parfum",
-    category: "Fragrances",
-    brand: "LuxeGlow",
-    image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=600&q=80",
-    badge: "Exclusive",
-    rating: 4.9,
-    reviews: 312,
-  },
-  {
-    id: 8,
-    name: "Professional Brush Set",
-    category: "Tools & Accessories",
-    brand: "Velvet Touch",
-    image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&q=80",
-    badge: null,
-    rating: 4.7,
-    reviews: 98,
-  },
-  {
-    id: 9,
-    name: "LED Facial Device",
-    category: "MedSpa Equipment",
-    brand: "Derma Elite",
-    image: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80",
-    badge: "Pro",
-    rating: 4.9,
-    reviews: 76,
-  },
-  {
-    id: 10,
-    name: "Vitamin C Brightening Serum",
-    category: "Skincare",
-    brand: "Pure Radiance",
-    image: "https://images.unsplash.com/photo-1617897903246-719242758050?w=600&q=80",
-    badge: "Best Seller",
-    rating: 4.8,
-    reviews: 189,
-  },
-  {
-    id: 11,
-    name: "Matte Lipstick Collection",
-    category: "Makeup",
-    brand: "Aura Beauty",
-    image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=600&q=80",
-    badge: null,
-    rating: 4.6,
-    reviews: 112,
-  },
-  {
-    id: 12,
-    name: "Argan Hair Repair Mask",
-    category: "Hair Care",
-    brand: "Silk & Satin",
-    image: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=600&q=80",
-    badge: "New",
-    rating: 4.7,
-    reviews: 43,
-  },
-  {
-    id: 13,
-    name: "Midnight Bloom Parfum",
-    category: "Fragrances",
-    brand: "LuxeGlow",
-    image: "https://images.unsplash.com/photo-1594035910387-fea477942698?w=600&q=80",
-    badge: "Limited Edition",
-    rating: 5.0,
-    reviews: 84,
-  },
-  {
-    id: 14,
-    name: "Ocean Mist Cologne",
-    category: "Fragrances",
-    brand: "Pure Radiance",
-    image: "https://images.unsplash.com/photo-1523293188086-b431e96000ec?w=600&q=80",
-    badge: null,
-    rating: 4.5,
-    reviews: 120,
-  },
-  {
-    id: 15,
-    name: "Golden Amber Essence",
-    category: "Fragrances",
-    brand: "Aura Beauty",
-    image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=600&q=80",
-    badge: "Best Seller",
-    rating: 4.8,
-    reviews: 215,
-  },
-  {
-    id: 16,
-    name: "Lumiere Pro X1 Laser",
-    category: "MedSpa Equipment",
-    brand: "Derma Elite",
-    image: "https://images.unsplash.com/photo-1629909615184-74f495363b67?w=600&q=80",
-    badge: "Professional",
-    rating: 5.0,
-    reviews: 12,
-  },
-  {
-    id: 17,
-    name: "DermaLift Ultra System",
-    category: "MedSpa Equipment",
-    brand: "Derma Elite",
-    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80",
-    badge: "New",
-    rating: 4.9,
-    reviews: 8,
-  },
-  {
-    id: 18,
-    name: "SculptBody 360",
-    category: "MedSpa Equipment",
-    brand: "LuxeGlow",
-    image: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&q=80",
-    badge: "Trending",
-    rating: 4.8,
-    reviews: 25,
-  },
-];
-
-export default function ShopPage() {
+export default function ShopClient() {
   const [selectedCategory, setSelectedCategory] = useState("All Products");
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -249,35 +47,7 @@ export default function ShopPage() {
   const [gridView, setGridView] = useState("large");
   const [showFilters, setShowFilters] = useState(false);
   const [wishlist, setWishlist] = useState([]);
-  const heroRef = useRef(null);
-  const productsRef = useRef(null);
   const searchParams = useSearchParams();
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".hero-content > *", {
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.2,
-        ease: "power3.out",
-      });
-
-      gsap.from(".product-card", {
-        scrollTrigger: {
-          trigger: productsRef.current,
-          start: "top 80%",
-        },
-        y: 60,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power3.out",
-      });
-    });
-
-    return () => ctx.revert();
-  }, []);
 
   useEffect(() => {
     const categoryParam = searchParams?.get("category");
@@ -289,6 +59,7 @@ export default function ShopPage() {
       setSelectedBrands([brandParam]);
     }
   }, [searchParams]);
+
   const filteredProducts = products.filter((product) => {
     const matchesCategory =
       selectedCategory === "All Products" || product.category === selectedCategory;
@@ -329,11 +100,9 @@ export default function ShopPage() {
 
   return (
     <main className="min-h-screen bg-background">
-      <Header />
 
       {/* Hero Section */}
       <section
-        ref={heroRef}
         className="relative pt-32 pb-20 overflow-hidden"
         style={{
           background: `linear-gradient(135deg, rgba(213, 206, 149, 0.15) 0%, rgba(255, 255, 255, 0.9) 50%, rgba(213, 206, 149, 0.1) 100%)`,
@@ -365,26 +134,6 @@ export default function ShopPage() {
               Explore our curated collection of luxury beauty products, professional skincare, 
               and MedSpa equipment for your business.
             </p>
-
-            {/* Search Bar
-            <div className="flex gap-3 max-w-xl">
-              <div className="relative flex-1">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                <Input
-                  type="text"
-                  placeholder="Search products..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-12 h-14 bg-white/80 backdrop-blur border-[#D5CE95]/30 focus:border-[#D5CE95] rounded-full text-base"
-                />
-              </div>
-              <Button
-                onClick={() => setShowFilters(!showFilters)}
-                className="h-14 px-6 bg-[#D5CE95] hover:bg-[#C4B87A] text-charcoal rounded-full lg:hidden"
-              >
-                <SlidersHorizontal className="w-5 h-5" />
-              </Button>
-            </div> */}
           </div>
         </div>
 
@@ -561,7 +310,7 @@ export default function ShopPage() {
             </AnimatePresence>
 
             {/* Products Grid */}
-            <div className="flex-1" ref={productsRef}>
+            <div className="flex-1">
               {/* Toolbar */}
               <div className="flex flex-wrap items-center justify-between gap-4 mb-8 bg-white rounded-xl p-4 shadow-sm border border-[#D5CE95]/20">
                 <div className="flex items-center gap-3">
@@ -636,14 +385,8 @@ export default function ShopPage() {
                     : "grid-cols-2 sm:grid-cols-3 xl:grid-cols-4"
                 }`}
               >
-                {sortedProducts.map((product, index) => (
-                  <motion.div
-                    key={product.id}
-                    className="product-card group"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                  >
+                {sortedProducts.map((product) => (
+                  <Link href={`/shops/${product.id}`} key={product.id} className="block">
                     <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#D5CE95]/10 hover:shadow-xl hover:border-[#D5CE95]/30 transition-all duration-500">
                       {/* Image */}
                       <div className="relative aspect-square overflow-hidden bg-linear-to-br from-[#D5CE95]/5 to-transparent">
@@ -680,16 +423,20 @@ export default function ShopPage() {
                               asChild
                               className="flex-1 bg-[#D5CE95] hover:bg-[#C4B87A] text-charcoal"
                             >
-                              <Link href="/contact">
+                              <span>
                                 <Phone className="w-4 h-4 mr-2" />
                                 Contact Us
-                              </Link>
+                              </span>
                             </Button>
                             <Button
                               size="icon"
                               variant="secondary"
                               className="bg-white/90 hover:bg-white"
-                              onClick={() => toggleWishlist(product.id)}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                toggleWishlist(product.id);
+                              }}
                             >
                               <Heart
                                 className={`w-4 h-4 ${
@@ -703,11 +450,8 @@ export default function ShopPage() {
                               size="icon"
                               variant="secondary"
                               className="bg-white/90 hover:bg-white"
-                              asChild
                             >
-                              <Link href={`/shop/${product.id}`}>
-                                <Eye className="w-4 h-4 text-charcoal" />
-                              </Link>
+                              <Eye className="w-4 h-4 text-charcoal" />
                             </Button>
                           </div>
                         </div>
@@ -739,7 +483,7 @@ export default function ShopPage() {
                         </div>
                       </div>
                     </div>
-                  </motion.div>
+                  </Link>
                 ))}
               </div>
 
@@ -786,56 +530,130 @@ export default function ShopPage() {
         </div>
       </section>
 
-      {/* CTA Banner */}
-      <section className="py-16 relative overflow-hidden">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1600&q=80")`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
-        <div className="absolute inset-0 bg-charcoal/80" />
-        <div className="absolute inset-0 bg-linear-to-r from-charcoal via-charcoal/90 to-transparent" />
+ {/* CTA Banner - Premium & Improved Version */}
+<section className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
+  {/* Background Layer */}
+  <div
+    className="absolute inset-0"
+    style={{
+      backgroundImage: `url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1600&q=80")`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}
+  />
+  {/* Dark Overlay + Gradient */}
+  <div className="absolute inset-0 bg-linear-to-r from-charcoal/95 via-charcoal/85 to-charcoal/70" />
+  {/* Subtle Pattern */}
+  <div className="absolute inset-0 bg-pattern-diagonal opacity-5" />
 
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-2xl">
-            <Badge className="bg-[#D5CE95]/20 text-[#D5CE95] border-[#D5CE95]/30 mb-4">
-              Wholesale Partner Program
-            </Badge>
-            <h2 className="font-serif text-4xl md:text-5xl text-white mb-4">
-              Become a <span className="text-[#D5CE95]">Wholesale Partner</span>
-            </h2>
-            <p className="text-white/80 text-lg mb-8">
-              Join our exclusive network of beauty professionals and access premium 
-              products at wholesale prices.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button
-                asChild
-                size="lg"
-                className="bg-[#D5CE95] hover:bg-[#C4B87A] text-charcoal rounded-full px-8"
-              >
-                <Link href="/contact">
-                  Apply Now
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-white/30 text-white hover:bg-white/10 rounded-full px-8 bg-transparent"
-              >
-                <Link href="/about">Learn More</Link>
-              </Button>
+  {/* Decorative Animated Elements */}
+  <motion.div
+    className="absolute -left-32 top-20 h-80 w-80 rounded-full border border-[#D5CE95]/20 opacity-30 hidden lg:block"
+    animate={{ rotate: 360 }}
+    transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
+  />
+  <motion.div
+    className="absolute -right-40 bottom-10 h-96 w-96 rounded-full border border-[#D5CE95]/10 opacity-20 hidden lg:block"
+    animate={{ scale: [1, 1.08, 1] }}
+    transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+  />
+
+  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      {/* Left - Main Message & Benefits */}
+      <div className="text-center lg:text-left">
+        <Badge className="inline-flex items-center gap-2 bg-[#D5CE95]/20 text-[#D5CE95] border-[#D5CE95]/30 mb-6 px-5 py-2.5 backdrop-blur-sm text-base font-medium">
+          <Sparkles className="w-5 h-5" />
+          Wholesale Partner Program
+        </Badge>
+
+        <h2 className="font-serif text-4xl sm:text-5xl md:text-5xl lg:text-5xl text-white mb-6 md:mb-8 leading-tight tracking-tight">
+          Unlock <span className="text-[#D5CE95] block">Exclusive</span> Wholesale Access
+        </h2>
+
+        <p className="text-lg sm:text-xl text-white/90 mb-8 md:mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+          Join thousands of beauty professionals who trust us for authentic products, 
+          competitive pricing, dedicated support, and fast global delivery.
+        </p>
+
+        {/* Key Benefits */}
+        <div className="grid sm:grid-cols-3 gap-6 md:gap-8 mb-10 md:mb-12">
+          {[
+            { icon: ShieldCheck, text: "100% Authentic & Certified" },
+            { icon: Truck, text: "Fast Worldwide Shipping" },
+            { icon: Users, text: "Personal Account Manager" },
+          ].map((benefit, i) => (
+            <div key={i} className="flex items-center gap-3 md:gap-4 justify-center lg:justify-start">
+              <div className="flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-2xl bg-[#D5CE95]/20 text-[#D5CE95] shrink-0">
+                <benefit.icon className="h-6 w-6 md:h-7 md:w-7" />
+              </div>
+              <span className="text-white/90 font-medium text-base md:text-lg">{benefit.text}</span>
             </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Right - CTA Card (Glassmorphism) */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="bg-white/10 backdrop-blur-xl rounded-3xl p-8 md:p-10 lg:p-12 border border-[#D5CE95]/30 shadow-2xl"
+      >
+        <h3 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white mb-6 text-center lg:text-left leading-tight">
+          Ready to Elevate Your Business?
+        </h3>
+
+        <p className="text-white/90 text-base md:text-lg mb-8 text-center lg:text-left">
+          Apply today for instant access to our full wholesale catalog, 
+          special pricing, and priority support.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center lg:justify-start">
+          <Button
+            asChild
+            size="lg"
+            className="bg-[#D5CE95] hover:bg-[#C4B87A] text-charcoal rounded-full px-8 md:px-10 py-6 md:py-7 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
+          >
+            <Link href="/contact">
+              Apply Now
+              <ArrowRight className="ml-3 h-5 w-5 md:h-6 md:w-6" />
+            </Link>
+          </Button>
+
+          <Button
+            asChild
+            size="lg"
+            variant="outline"
+            className="border-[#D5CE95]/60 text-[#D5CE95] hover:bg-[#D5CE95]/10 hover:text-white rounded-full px-8 md:px-10 py-6 md:py-7 text-lg font-semibold backdrop-blur-sm transition-all duration-300"
+          >
+            <Link href="/about">
+              Learn More About Benefits
+            </Link>
+          </Button>
+        </div>
+
+        {/* Trust Signals */}
+        <div className="mt-8 md:mt-10 flex flex-wrap justify-center lg:justify-start gap-6 md:gap-10">
+          <div className="flex items-center gap-2 text-white/90">
+            <ShieldCheck className="h-5 w-5 md:h-6 md:w-6 text-[#D5CE95]" />
+            <span className="text-sm md:text-base">Secure & Confidential</span>
+          </div>
+          <div className="flex items-center gap-2 text-white/90">
+            <Clock className="h-5 w-5 md:h-6 md:w-6 text-[#D5CE95]" />
+            <span className="text-sm md:text-base">Response in 24 Hours</span>
+          </div>
+          <div className="flex items-center gap-2 text-white/90">
+            <Users className="h-5 w-5 md:h-6 md:w-6 text-[#D5CE95]" />
+            <span className="text-sm md:text-base">5000+ Partners</span>
           </div>
         </div>
-      </section>
+      </motion.div>
+    </div>
+  </div>
+</section>
 
-      <Footer />
     </main>
   );
 }

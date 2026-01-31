@@ -44,14 +44,14 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    details: ["+1 (888) 555-0123", "+1 (888) 555-0124"],
-    action: "tel:+18885550123",
+    details: [ "+1 (800) 555-0199"],
+    action: "tel:+18005550199",
     actionText: "Call Now",
   },
   {
     icon: Mail,
     title: "Email",
-    details: ["wholesale@luxebeauty.com", "support@luxebeauty.com"],
+    details: ["wholesale@luxebeauty.com"],
     action: "mailto:wholesale@luxebeauty.com",
     actionText: "Send Email",
   },
@@ -197,29 +197,28 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen bg-background">
-      <Header />
 
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative pt-32 pb-20 overflow-hidden"
+        className="relative pt-24 md:pt-32 pb-16 md:pb-20 overflow-hidden"
         style={{
           background: `linear-gradient(135deg, rgba(213, 206, 149, 0.15) 0%, rgba(255, 255, 255, 0.95) 50%, rgba(213, 206, 149, 0.1) 100%)`,
         }}
       >
         <div className="absolute inset-0 bg-pattern-dots opacity-40" />
 
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="hero-content text-center max-w-3xl mx-auto">
             <Badge className="bg-[#D5CE95]/20 text-[#8B8455] border-[#D5CE95] mb-6">
               <MessageCircle className="w-3 h-3 mr-1" />
               Get in Touch
             </Badge>
-            <h1 className="font-serif text-5xl md:text-7xl text-charcoal mb-6 text-balance">
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-charcoal mb-6 text-balance">
               Let's Start Your{" "}
               <span className="text-gradient-gold">Partnership</span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed">
               Ready to elevate your beauty business? Our team is here to help you access 
               premium wholesale products and grow your business.
             </p>
@@ -228,12 +227,12 @@ export default function ContactPage() {
 
         {/* Floating Elements */}
         <motion.div
-          className="absolute top-32 left-20 w-20 h-20 rounded-full bg-[#D5CE95]/20 hidden lg:block"
+          className="absolute top-32 left-10 sm:left-20 w-16 sm:w-20 h-16 sm:h-20 rounded-full bg-[#D5CE95]/20 hidden lg:block"
           animate={{ y: [0, -15, 0] }}
           transition={{ duration: 4, repeat: Infinity }}
         />
         <motion.div
-          className="absolute bottom-20 right-32 w-16 h-16 rounded-full bg-rose-200/30 hidden lg:block"
+          className="absolute bottom-16 sm:bottom-20 right-10 sm:right-32 w-12 sm:w-16 h-12 sm:h-16 rounded-full bg-rose-200/30 hidden lg:block"
           animate={{ y: [0, 12, 0] }}
           transition={{ duration: 3.5, repeat: Infinity }}
         />
@@ -241,8 +240,8 @@ export default function ContactPage() {
 
       {/* Contact Cards */}
       <section className="py-12 -mt-8 relative z-20">
-        <div className="container mx-auto px-4">
-          <div className="contact-cards grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="contact-cards grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {contactInfo.map((info, index) => (
               <motion.div
                 key={index}
@@ -251,7 +250,7 @@ export default function ContactPage() {
                 transition={{ duration: 0.3 }}
               >
                 <div className="bg-white rounded-2xl p-6 h-full shadow-lg border border-[#D5CE95]/20 hover:border-[#D5CE95]/40 transition-all duration-300">
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#D5CE95] to-[#C4B87A] flex items-center justify-center mb-4">
+                  <div className="w-14 h-14 rounded-xl bg-linear-to-br from-[#D5CE95] to-[#C4B87A] flex items-center justify-center mb-4">
                     <info.icon className="w-7 h-7 text-charcoal" />
                   </div>
                   <h3 className="font-serif text-xl text-charcoal mb-3">{info.title}</h3>
@@ -279,19 +278,19 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form Section */}
-      <section ref={formRef} className="py-20 relative overflow-hidden">
+      <section ref={formRef} className="py-16 md:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-pattern-luxury" />
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-5 gap-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
             {/* Left Content */}
             <div className="lg:col-span-2">
               <Badge className="bg-[#D5CE95]/20 text-[#8B8455] border-[#D5CE95] mb-4">
                 Wholesale Inquiries
               </Badge>
-              <h2 className="font-serif text-4xl text-charcoal mb-6">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-charcoal mb-6">
                 Request a <span className="text-gradient-gold">Quote</span>
               </h2>
-              <p className="text-muted-foreground leading-relaxed mb-8">
+              <p className="text-muted-foreground leading-relaxed mb-8 text-base sm:text-lg">
                 Fill out the form and one of our wholesale specialists will contact you 
                 within 24 hours to discuss your needs and provide a customized quote.
               </p>
@@ -308,7 +307,7 @@ export default function ContactPage() {
                     <div className="w-6 h-6 rounded-full bg-[#D5CE95]/20 flex items-center justify-center">
                       <CheckCircle className="w-4 h-4 text-[#8B8455]" />
                     </div>
-                    <span className="text-charcoal">{feature}</span>
+                    <span className="text-charcoal text-sm sm:text-base">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -337,7 +336,7 @@ export default function ContactPage() {
 
             {/* Form */}
             <div className="lg:col-span-3 form-section">
-              <div className="bg-white rounded-3xl p-8 md:p-10 shadow-xl border border-[#D5CE95]/20">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl border border-[#D5CE95]/20">
                 {submitted ? (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
@@ -350,7 +349,7 @@ export default function ContactPage() {
                     <h3 className="font-serif text-3xl text-charcoal mb-4">
                       Thank You!
                     </h3>
-                    <p className="text-muted-foreground mb-8 max-w-md mx-auto">
+                    <p className="text-muted-foreground mb-8 max-w-md mx-auto text-sm sm:text-base">
                       Your inquiry has been received. Our wholesale team will contact 
                       you within 24 hours.
                     </p>
@@ -369,7 +368,7 @@ export default function ContactPage() {
                           newsletter: false,
                         });
                       }}
-                      className="bg-[#D5CE95] hover:bg-[#C4B87A] text-charcoal rounded-full px-8"
+                      className="bg-[#D5CE95] hover:bg-[#C4B87A] text-charcoal rounded-full px-6 sm:px-8"
                     >
                       Submit Another Inquiry
                     </Button>
@@ -529,7 +528,7 @@ export default function ContactPage() {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full h-14 bg-gradient-to-r from-[#D5CE95] to-[#C4B87A] hover:from-[#C4B87A] hover:to-[#B3A76A] text-charcoal rounded-xl text-lg font-medium disabled:opacity-50"
+                      className="w-full h-14 bg-linear-to-r from-[#D5CE95] to-[#C4B87A] hover:from-[#C4B87A] hover:to-[#B3A76A] text-charcoal rounded-xl text-base sm:text-lg font-medium disabled:opacity-50"
                     >
                       {isSubmitting ? (
                         <div className="flex items-center gap-2">
@@ -552,23 +551,23 @@ export default function ContactPage() {
       </section>
 
       {/* Office Locations */}
-      <section className="offices-section py-20 bg-gradient-to-b from-[#D5CE95]/5 to-transparent">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+      <section className="offices-section py-16 md:py-20 bg-linear-to-b from-[#D5CE95]/5 to-transparent">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 md:mb-12">
             <Badge className="bg-[#D5CE95]/20 text-[#8B8455] border-[#D5CE95] mb-4">
               <Globe className="w-3 h-3 mr-1" />
               Global Presence
             </Badge>
-            <h2 className="font-serif text-4xl md:text-5xl text-charcoal mb-4">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal mb-4">
               Our <span className="text-gradient-gold">Offices</span>
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg">
               With offices across three continents, we are well-positioned to serve 
               beauty professionals worldwide.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {officeLocations.map((office, index) => (
               <motion.div
                 key={index}
@@ -584,7 +583,7 @@ export default function ContactPage() {
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-charcoal/60 to-transparent" />
                     <div className="absolute bottom-4 left-4">
                       <h3 className="font-serif text-2xl text-white">{office.city}</h3>
                       <p className="text-white/80 text-sm">{office.country}</p>
@@ -608,9 +607,9 @@ export default function ContactPage() {
       </section>
 
       {/* Map Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="relative rounded-3xl overflow-hidden h-[500px] shadow-xl">
+      <section className="py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative rounded-3xl overflow-hidden h-96 sm:h-125 lg:h-150 shadow-xl">
             <Image
               src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1600&q=80"
               alt="World Map"
@@ -618,21 +617,21 @@ export default function ContactPage() {
               className="object-cover"
             />
             <div className="absolute inset-0 bg-charcoal/70" />
-            <div className="absolute inset-0 flex items-center justify-center">
+            <div className="absolute inset-0 flex items-center justify-center px-4">
               <div className="text-center">
-                <h3 className="font-serif text-4xl text-white mb-4">
+                <h3 className="font-serif text-3xl sm:text-4xl text-white mb-4">
                   Serving <span className="text-[#D5CE95]">50+</span> Countries
                 </h3>
-                <p className="text-white/80 mb-8 max-w-md mx-auto">
+                <p className="text-white/80 mb-6 sm:mb-8 max-w-md mx-auto text-base sm:text-lg">
                   Our global logistics network ensures fast and reliable delivery 
                   to beauty professionals worldwide.
                 </p>
                 <Button
                   asChild
                   size="lg"
-                  className="bg-[#D5CE95] hover:bg-[#C4B87A] text-charcoal rounded-full px-8"
+                  className="bg-[#D5CE95] hover:bg-[#C4B87A] text-charcoal rounded-full px-6 sm:px-8"
                 >
-                  <Link href="/shop">
+                  <Link href="/shops">
                     <Sparkles className="w-4 h-4 mr-2" />
                     Browse Products
                   </Link>
@@ -642,49 +641,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
-      {/* FAQ CTA */}
-      <section className="py-20 bg-charcoal relative overflow-hidden">
-        <div className="absolute inset-0 bg-pattern-diagonal opacity-10" />
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <div>
-              <h2 className="font-serif text-3xl md:text-4xl text-white mb-4">
-                Have More Questions?
-              </h2>
-              <p className="text-white/70 max-w-lg">
-                Check our FAQ section for answers to common questions about wholesale 
-                partnerships, shipping, and more.
-              </p>
-            </div>
-            <div className="flex gap-4">
-              <Button
-                asChild
-                size="lg"
-                className="bg-[#D5CE95] hover:bg-[#C4B87A] text-charcoal rounded-full px-8"
-              >
-                <Link href="/about">
-                  View FAQ
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-white/30 text-white hover:bg-white/10 rounded-full px-8 bg-transparent"
-              >
-                <a href="tel:+18885550123">
-                  <Phone className="w-4 h-4 mr-2" />
-                  Call Us
-                </a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
     </main>
   );
 }

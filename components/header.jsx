@@ -7,7 +7,7 @@ import { FiMenu, FiX, FiPhone, FiMail, FiMapPin, FiInstagram, FiFacebook, FiTwit
 
  const navLinks = [
    { name: 'Home', href: '/' },
-   { name: 'Products', href: '/shop' },
+   { name: 'Shops', href: '/shops' },
    { name: 'MedSpa', href: '/medspa' },
    { name: 'About', href: '/about' },
    { name: 'Contact', href: '/contact' },
@@ -43,15 +43,16 @@ export default function Header() {
           <div className="flex items-center gap-4 text-xs text-ivory/80 md:gap-6">
             <a href="tel:+18005550199" className="flex items-center gap-1.5 transition-colors hover:text-luxe-gold">
               <FiPhone className="h-3 w-3" />
-              <span className="hidden sm:inline">(800) 555-0199</span>
+              <span className="hidden sm:inline">+1 (800) 555-0199</span>
             </a>
-            <a href="mailto:info@lumiere.com" className="flex items-center gap-1.5 transition-colors hover:text-luxe-gold">
+            <a href="mailto:wholesale@lumierebeauty.com" className="flex items-center gap-1.5 transition-colors hover:text-luxe-gold">
               <FiMail className="h-3 w-3" />
-              <span className="hidden md:inline">info@lumiere.com</span>
+              <span className="hidden md:inline">wholesale@lumierebeauty.com</span>
             </a>
             <div className="hidden items-center gap-1.5 lg:flex">
               <FiMapPin className="h-3 w-3" />
-              <span>New York, NY</span>
+              <span>123 Beauty Boulevard
+Los Angeles, CA 90001</span>
             </div>
           </div>
           
@@ -88,14 +89,14 @@ export default function Header() {
       >
         <div className="mx-auto max-w-7xl px-2 lg:px-8">
           {/* Logo Section - Centered */}
-          <div className="flex items-center justify-center border-b border-luxe-gold/20 py-2">
+          <div className="flex items-center justify-center border-b border-luxe-gold/20 ">
             <Link href="/" className="flex flex-col items-center gap-1">
               <Image
-                src="/logo.png"
+                src="/logo-new.png"
                 alt="Devan Morris"
                 width={200}
                 height={80}
-                className="h-25 w-full object-contain md:h-33 "
+                className=" w-full object-contain md:h-28 h-16"
                 priority
               />
             </Link>
@@ -139,7 +140,7 @@ export default function Header() {
             {/* CTA Button */}
             <Link
               href="/contact"
-              className="rounded-full bg-gradient-gold px-6 py-2.5 font-sans text-sm font-semibold text-charcoal shadow-md transition-all duration-300 hover:shadow-lg"
+              className="rounded-full bg-linear-gold px-6 py-2.5 font-sans text-sm font-semibold text-charcoal shadow-md transition-all duration-300 hover:shadow-lg"
             >
               Get Quote
             </Link>
@@ -184,7 +185,7 @@ export default function Header() {
               <Link
                 href="/contact"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="mt-6 rounded-full bg-gradient-gold px-10 py-4 font-sans text-sm font-semibold uppercase tracking-widest text-charcoal"
+                className="mt-6 rounded-full bg-linear-gold px-10 py-4 font-sans text-sm font-semibold uppercase tracking-widest text-charcoal"
               >
                  Get Quote
               </Link>
@@ -198,11 +199,11 @@ export default function Header() {
               >
                 <a href="tel:+18005550199" className="flex items-center gap-2 text-sm hover:text-luxe-gold">
                   <FiPhone className="h-4 w-4" />
-                  (800) 555-0199
+                  +1 (800) 555-0199
                 </a>
-                <a href="mailto:info@lumiere.com" className="flex items-center gap-2 text-sm hover:text-luxe-gold">
+                <a href="mailto:wholesale@lumierebeauty.com" className="flex items-center gap-2 text-sm hover:text-luxe-gold">
                   <FiMail className="h-4 w-4" />
-                  info@lumiere.com
+                  wholesale@lumierebeauty.com
                 </a>
               </motion.div>
             </motion.nav>

@@ -86,7 +86,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block">
               <Image
-                src="/logo.png"
+                src="/logo-new.png"
                 alt="Devan Morris"
                 width={180}
                 height={60}
@@ -217,7 +217,7 @@ export default function Footer() {
                 onClick={onSubscribe}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="flex shrink-0 items-center gap-2 rounded-xl bg-gradient-gold px-6 py-3 font-sans text-sm font-semibold text-charcoal transition-all duration-300 hover:shadow-lg disabled:opacity-60"
+                className="flex shrink-0 items-center gap-2 rounded-xl bg-linear-gold px-6 py-3 font-sans text-sm font-semibold text-charcoal transition-all duration-300 hover:shadow-lg disabled:opacity-60"
                 disabled={!isValid}
               >
                 <FiSend className="h-4 w-4" />
@@ -240,7 +240,7 @@ export default function Footer() {
               Join our exclusive network of beauty professionals and access premium products at wholesale prices.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center">
-              <Link href="/contact" className="rounded-full bg-gradient-gold px-6 py-3 font-sans text-sm font-semibold text-charcoal">
+              <Link href="/contact" className="rounded-full bg-linear-gold px-6 py-3 font-sans text-sm font-semibold text-charcoal">
                 Apply Now
               </Link>
               <Link href="/about" className="rounded-full border border-luxe-gold px-6 py-3 font-sans text-sm text-ivory">

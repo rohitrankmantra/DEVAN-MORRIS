@@ -2,6 +2,9 @@ import { Inter, Cinzel, Great_Vibes, Poppins } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { Toaster } from '@/components/ui/toaster'
+import Header from '@/components/header'
+import Footer from '@/components/footer'
+
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -31,9 +34,18 @@ const poppins = Poppins({
 
 export const metadata = {
   title: 'DEVAN MORRIS | Premium Wholesale Beauty & MedSpa Supplies',
-  description: 'Your trusted wholesale supplier for luxury cosmetics, beauty supplies, perfumes, and professional MedSpa equipment. Request your quote today.',
-  keywords: 'wholesale beauty, cosmetics supplier, MedSpa equipment, skin care wholesale, perfumes wholesale, beauty supplies',
+  description:
+    'Your trusted wholesale supplier for luxury cosmetics, beauty supplies, perfumes, and professional MedSpa equipment. Request your quote today.',
+  keywords:
+    'wholesale beauty, cosmetics supplier, MedSpa equipment, skin care wholesale, perfumes wholesale, beauty supplies',
+
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
 }
+
 
 export const viewport = {
   themeColor: '#d4a574',
@@ -45,8 +57,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${cinzel.variable} ${greatVibes.variable} ${poppins.variable}`}>
       <body className="font-sans antialiased overflow-x-hidden">
+              <Header />
         {children}
         <Toaster />
+        <Footer/>
         <Analytics />
       </body>
     </html>

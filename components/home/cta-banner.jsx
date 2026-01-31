@@ -134,7 +134,7 @@ export default function CTABanner() {
                 href="#contact"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-gold px-8 py-4 font-sans text-sm font-semibold uppercase tracking-widest text-charcoal shadow-lg transition-all duration-300 hover:shadow-xl"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-linear-gold px-8 py-4 font-sans text-sm font-semibold uppercase tracking-widest text-charcoal shadow-lg transition-all duration-300 hover:shadow-xl"
               >
                 Request Quote
                 <FiArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

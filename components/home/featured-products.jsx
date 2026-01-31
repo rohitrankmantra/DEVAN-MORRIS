@@ -167,7 +167,7 @@ export default function FeaturedProducts() {
                     <div className="w-full p-5 md:p-6">
                       <Link
                         href="/contact"
-                        className="flex w-full items-center justify-center gap-2 rounded-full bg-gradient-gold py-3 text-sm font-semibold text-charcoal shadow-md"
+                        className="flex w-full items-center justify-center gap-2 rounded-full bg-linear-gold py-3 text-sm font-semibold text-charcoal shadow-md"
                       >
                         Contact Us
                         <FiArrowRight className="h-4 w-4" />
@@ -250,7 +250,7 @@ export default function FeaturedProducts() {
                   <motion.a
                     href="#contact"
                     whileTap={{ scale: 0.97 }}
-                    className="mt-5 flex w-full items-center justify-center gap-2 rounded-full bg-gradient-gold py-3 text-sm font-semibold text-charcoal shadow-md"
+                    className="mt-5 flex w-full items-center justify-center gap-2 rounded-full bg-linear-gold py-3 text-sm font-semibold text-charcoal shadow-md"
                   >
                     Contact Us
                     <FiArrowRight className="h-4 w-4" />

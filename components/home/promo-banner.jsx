@@ -112,7 +112,7 @@ export default function PromoBanner() {
                   href="#contact"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center gap-2 rounded-full bg-gradient-gold px-5 py-2.5 font-sans text-sm font-semibold text-charcoal shadow-md transition-all duration-300 hover:shadow-lg"
+                  className="inline-flex items-center gap-2 rounded-full bg-linear-gold px-5 py-2.5 font-sans text-sm font-semibold text-charcoal shadow-md transition-all duration-300 hover:shadow-lg"
                   onClick={handleDismiss}
                 >
                   <span className="hidden sm:inline">Get Quote</span>

@@ -106,7 +106,7 @@ export default function ContactForm() {
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-pattern-diagonal" />
-      <div className="absolute inset-0 bg-gradient-warm" />
+      <div className="absolute inset-0 bg-linear-warm" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-12">
         {/* Section Header */}
@@ -229,7 +229,7 @@ export default function ContactForm() {
                   disabled={isSubmitting}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-gold px-8 py-4 font-sans text-sm font-semibold uppercase tracking-widest text-charcoal shadow-lg transition-all duration-300 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-70"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-linear-gold px-8 py-4 font-sans text-sm font-semibold uppercase tracking-widest text-charcoal shadow-lg transition-all duration-300 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-70"
                 >
                   {isSubmitting ? (
                     <>
@@ -290,7 +290,7 @@ export default function ContactForm() {
                   <div>
                     <p className="font-sans text-sm font-medium text-ivory">Call Us</p>
                     <a href="tel:+1-800-555-0199" className="font-sans text-sm text-ivory/70 hover:text-luxe-gold">
-                      +1 (800) 555-0199
+                      +1 +1 (800) 555-0199
                     </a>
                   </div>
                 </div>
