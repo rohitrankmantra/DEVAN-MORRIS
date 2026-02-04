@@ -277,8 +277,8 @@ export default function ContactForm() {
                   </div>
                   <div>
                     <p className="font-sans text-sm font-medium text-ivory">Email Us</p>
-                    <a href="mailto:wholesale@lumierebeauty.com" className="font-sans text-sm text-ivory/70 hover:text-luxe-gold">
-                      wholesale@lumierebeauty.com
+                    <a href="mailto:contact@devanmorris.com" className="font-sans text-sm text-ivory/70 hover:text-luxe-gold">
+                      contact@devanmorris.com
                     </a>
                   </div>
                 </div>
@@ -290,7 +290,7 @@ export default function ContactForm() {
                   <div>
                     <p className="font-sans text-sm font-medium text-ivory">Call Us</p>
                     <a href="tel:+1-800-555-0199" className="font-sans text-sm text-ivory/70 hover:text-luxe-gold">
-                      +1 +1 (800) 555-0199
+                      +1 470 549 7613
                     </a>
                   </div>
                 </div>

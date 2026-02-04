@@ -19,7 +19,7 @@ const features = [
 
 const equipment = [
   {
-    id: 1,
+    id: 13,
     name: 'Laser Hair Removal',
     model: 'Lumiere Pro X1',
     description: 'Advanced diode laser technology for painless and effective permanent hair reduction on all skin types.',
@@ -27,7 +27,7 @@ const equipment = [
     image: 'https://images.unsplash.com/photo-1629909615184-74f495363b67?q=80&w=1169',
   },
   {
-    id: 2,
+    id: 14,
     name: 'Skin Rejuvenation',
     model: 'DermaLift Ultra',
     description: 'Multi-functional platform combining RF microneedling and LED therapy for superior anti-aging results.',
@@ -35,7 +35,7 @@ const equipment = [
     image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=1170',
   },
   {
-    id: 3,
+    id: 12,
     name: 'Body Contouring',
     model: 'SculptBody 360',
     description: 'Non-invasive body sculpting device utilizing cryolipolysis and EMS for fat reduction and muscle toning.',
@@ -165,7 +165,7 @@ export default function MedSpaSection() {
                 </div>
 
                 <Link
-                  href="/shop?category=MedSpa%20Equipment"
+                  href={`/shops/${item.id}`}
                   className="group/btn flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-luxe-gold transition-all"
                 >
                   View Details

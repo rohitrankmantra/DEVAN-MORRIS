@@ -50,7 +50,6 @@ export const products = [
     images: [
       "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=800&q=80",
       "https://images.unsplash.com/photo-1617897903246-719242758050?w=800&q=80",
-      "https://images.unsplash.com/photo-1570194065650-d99fb4b38b15?w=800&q=80",
       "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=800&q=80",
     ],
     minOrder: 12,
@@ -132,7 +131,7 @@ export const products = [
       { label: "Skin Type", value: "Mature" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1570194065650-d99fb4b38b15?w=800&q=80",
+      "https://images.pexels.com/photos/16667090/pexels-photo-16667090.jpeg",
     ],
     minOrder: 12,
   },

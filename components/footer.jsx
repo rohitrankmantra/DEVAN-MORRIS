@@ -16,11 +16,11 @@ import {
 
 const footerLinks = {
   products: [
-    { name: 'Cosmetics', href: '/shop?category=Makeup' },
-    { name: 'Beauty Supplies', href: '/shop?category=Tools%20%26%20Accessories' },
-    { name: 'Perfumes', href: '/shop?category=Fragrances' },
+    { name: 'Cosmetics', href: '/shops?category=Makeup' },
+    { name: 'Beauty Supplies', href: '/shops?category=Tools%20%26%20Accessories' },
+    { name: 'Perfumes', href: '/shops?category=Fragrances' },
     { name: 'MedSpa Equipment', href: '/medspa' },
-    { name: 'Skincare Packages', href: '/shop?category=Skincare' },
+    { name: 'Skincare Packages', href: '/shops?category=Skincare' },
   ],
   company: [
     { name: 'About Us', href: '/about' },
@@ -31,10 +31,10 @@ const footerLinks = {
   ],
   support: [
     { name: 'Request Quote', href: '/contact' },
-    { name: 'Shipping Info', href: '/about' },
-    { name: 'Returns Policy', href: '/about' },
-    { name: 'FAQ', href: '/about' },
-    { name: 'Privacy Policy', href: '/about' },
+    { name: 'Shipping Info', href: '/shipping-info' },
+    { name: 'Returns Policy', href: '/shipping-info' },
+    { name: 'FAQ', href: '/faq' },
+    { name: 'Privacy Policy', href: '/privacy-policy' },
   ],
 }
 
@@ -42,7 +42,7 @@ const socialLinks = [
   { name: 'Instagram', icon: FiInstagram, href: '#' },
   { name: 'Facebook', icon: FiFacebook, href: '#' },
   { name: 'LinkedIn', icon: FiLinkedin, href: '#' },
-  { name: 'Email', icon: FiMail, href: 'mailto:wholesale@lumierebeauty.com' },
+  { name: 'Email', icon: FiMail, href: 'mailto:contact@devanmorris.com' },
 ]
 
 export default function Footer() {

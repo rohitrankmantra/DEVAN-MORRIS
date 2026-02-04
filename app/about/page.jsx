@@ -248,7 +248,7 @@ export default function AboutPage() {
                 variant="outline"
                 className="border-[#D5CE95] text-charcoal hover:bg-[#D5CE95]/10 rounded-full px-6 sm:px-8 h-12 sm:h-14 bg-transparent"
               >
-                <Link href="/shop">Explore Products</Link>
+                <Link href="/shops">Explore Products</Link>
               </Button>
             </div>
           </div>
@@ -601,7 +601,7 @@ export default function AboutPage() {
                   variant="outline"
                   className="border-[#D5CE95] text-[#D5CE95] hover:bg-[#D5CE95]/10 rounded-full px-6 sm:px-8 h-12 sm:h-14"
                 >
-                  <Link href="/shop">
+                  <Link href="/shops">
                     Browse Catalog
                   </Link>
                 </Button>

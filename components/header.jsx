@@ -43,15 +43,15 @@ export default function Header() {
           <div className="flex items-center gap-4 text-xs text-ivory/80 md:gap-6">
             <a href="tel:+18005550199" className="flex items-center gap-1.5 transition-colors hover:text-luxe-gold">
               <FiPhone className="h-3 w-3" />
-              <span className="hidden sm:inline">+1 (800) 555-0199</span>
+              <span className="hidden sm:inline">470 549 7613</span>
             </a>
-            <a href="mailto:wholesale@lumierebeauty.com" className="flex items-center gap-1.5 transition-colors hover:text-luxe-gold">
+            <a href="mailto:contact@devanmorris.com" className="flex items-center gap-1.5 transition-colors hover:text-luxe-gold">
               <FiMail className="h-3 w-3" />
-              <span className="hidden md:inline">wholesale@lumierebeauty.com</span>
+              <span className="hidden md:inline">contact@devanmorris.com</span>
             </a>
             <div className="hidden items-center gap-1.5 lg:flex">
               <FiMapPin className="h-3 w-3" />
-              <span>123 Beauty Boulevard Los Angeles, CA 90001</span>
+              <span>Lebanon, IN 46052</span>
             </div>
           </div>
 
@@ -187,11 +187,11 @@ export default function Header() {
               >
                 <a href="tel:+18005550199" className="flex items-center gap-2 text-sm hover:text-luxe-gold">
                   <FiPhone className="h-4 w-4" />
-                  +1 (800) 555-0199
+                  470 549 7613
                 </a>
-                <a href="mailto:wholesale@lumierebeauty.com" className="flex items-center gap-2 text-sm hover:text-luxe-gold">
+                <a href="mailto:contact@devanmorris.com" className="flex items-center gap-2 text-sm hover:text-luxe-gold">
                   <FiMail className="h-4 w-4" />
-                  wholesale@lumierebeauty.com
+                  contact@devanmorris.com
                 </a>
               </motion.div>
             </motion.nav>

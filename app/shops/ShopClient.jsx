@@ -263,7 +263,10 @@ export default function ShopClient() {
 
                     {/* Categories */}
                     <div className="mb-8">
-                      <h4 className="font-medium text-charcoal mb-3">Categories</h4>
+                      <h3 className="font-serif text-lg text-charcoal mb-4 flex items-center gap-2">
+                        <span className="w-8 h-0.5 bg-[#D5CE95]" />
+                        Categories
+                      </h3>
                       <ul className="space-y-2">
                         {categories.map((category) => (
                           <li key={category}>
@@ -274,8 +277,8 @@ export default function ShopClient() {
                               }}
                               className={`w-full text-left px-4 py-2.5 rounded-lg transition-all ${
                                 selectedCategory === category
-                                  ? "bg-[#D5CE95]/20 text-charcoal font-medium"
-                                  : "text-muted-foreground hover:bg-muted"
+                                  ? "bg-[#D5CE95]/20 text-charcoal font-medium border-l-2 border-[#D5CE95]"
+                                  : "text-muted-foreground hover:bg-[#D5CE95]/10 hover:text-charcoal"
                               }`}
                             >
                               {category}
@@ -286,23 +289,53 @@ export default function ShopClient() {
                     </div>
 
                     {/* Brands */}
-                    <div>
-                      <h4 className="font-medium text-charcoal mb-3">Brands</h4>
+                    <div className="mb-8">
+                      <h3 className="font-serif text-lg text-charcoal mb-4 flex items-center gap-2">
+                        <span className="w-8 h-0.5 bg-[#D5CE95]" />
+                        Brands
+                      </h3>
                       <div className="space-y-3">
                         {brands.map((brand) => (
                           <label
                             key={brand}
-                            className="flex items-center gap-3 cursor-pointer"
+                            className="flex items-center gap-3 cursor-pointer group"
                           >
                             <Checkbox
                               checked={selectedBrands.includes(brand)}
                               onCheckedChange={() => toggleBrand(brand)}
-                              className="border-[#D5CE95] data-[state=checked]:bg-[#D5CE95]"
+                              className="border-[#D5CE95] data-[state=checked]:bg-[#D5CE95] data-[state=checked]:border-[#D5CE95]"
                             />
-                            <span className="text-muted-foreground">{brand}</span>
+                            <span className="text-muted-foreground group-hover:text-charcoal transition-colors">
+                              {brand}
+                            </span>
                           </label>
                         ))}
                       </div>
+                    </div>
+
+                    {/* CTA Card */}
+                    <div
+                      className="relative overflow-hidden rounded-2xl p-6"
+                      style={{
+                        background: "linear-gradient(135deg, #D5CE95 0%, #C4B87A 100%)",
+                      }}
+                    >
+                      <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
+                      <h4 className="font-serif text-lg text-charcoal mb-2">
+                        Need Help?
+                      </h4>
+                      <p className="text-sm text-charcoal/80 mb-4">
+                        Our team is ready to assist with your wholesale inquiries.
+                      </p>
+                      <Button
+                        asChild
+                        className="w-full bg-charcoal hover:bg-charcoal/90 text-white"
+                      >
+                        <Link href="/contact">
+                          <Phone className="w-4 h-4 mr-2" />
+                          Contact Us
+                        </Link>
+                      </Button>
                     </div>
                   </motion.div>
                 </motion.div>
@@ -314,7 +347,15 @@ export default function ShopClient() {
               {/* Toolbar */}
               <div className="flex flex-wrap items-center justify-between gap-4 mb-8 bg-white rounded-xl p-4 shadow-sm border border-[#D5CE95]/20">
                 <div className="flex items-center gap-3">
-                  <span className="text-muted-foreground">
+                  <Button
+                    variant="outline"
+                    className="lg:hidden border-[#D5CE95] text-charcoal hover:bg-[#D5CE95]/10"
+                    onClick={() => setShowFilters(true)}
+                  >
+                    <Filter className="w-4 h-4 mr-2" />
+                    Filters
+                  </Button>
+                  <span className="text-muted-foreground hidden sm:inline">
                     Showing{" "}
                     <span className="text-charcoal font-medium">
                       {sortedProducts.length}
@@ -386,7 +427,7 @@ export default function ShopClient() {
                 }`}
               >
                 {sortedProducts.map((product) => (
-                  <Link href={`/shop/${product.id}`} key={product.id} className="block">
+                  <Link href={`/shops/${product.id}`} key={product.id} className="block">
                     <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#D5CE95]/10 hover:shadow-xl hover:border-[#D5CE95]/30 transition-all duration-500">
                       {/* Image */}
                       <div className="relative aspect-square overflow-hidden bg-linear-to-br from-[#D5CE95]/5 to-transparent">

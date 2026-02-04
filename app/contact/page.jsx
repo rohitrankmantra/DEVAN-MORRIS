@@ -44,21 +44,21 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    details: ["+1 (888) 555-0123", "+1 (888) 555-0124"],
-    action: "tel:+18885550123",
+    details: ["470 549 7613"],
+    action: "tel:+14705497613",
     actionText: "Call Now",
   },
   {
     icon: Mail,
     title: "Email",
-    details: ["wholesale@luxebeauty.com", "support@luxebeauty.com"],
-    action: "mailto:wholesale@luxebeauty.com",
+    details: ["contact@devanmorris.com", ],
+    action: "mailto:contact@devanmorris.com",
     actionText: "Send Email",
   },
   {
     icon: MapPin,
     title: "Headquarters",
-    details: ["123 Beauty Boulevard", "Los Angeles, CA 90001"],
+    details: ["123 Beauty Boulevard", "Lebanon, IN 46052"],
     action: "https://maps.google.com",
     actionText: "Get Directions",
   },
@@ -71,29 +71,7 @@ const contactInfo = [
   },
 ];
 
-const officeLocations = [
-  {
-    city: "Los Angeles",
-    country: "USA",
-    address: "123 Beauty Boulevard, LA 90001",
-    phone: "+1 (888) 555-0123",
-    image: "https://images.unsplash.com/photo-1534190760961-74e8c1c5c3da?w=600&q=80",
-  },
-  {
-    city: "London",
-    country: "UK",
-    address: "45 Mayfair Lane, W1K 2PA",
-    phone: "+44 20 7123 4567",
-    image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&q=80",
-  },
-  {
-    city: "Dubai",
-    country: "UAE",
-    address: "Business Bay Tower, Suite 1200",
-    phone: "+971 4 123 4567",
-    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&q=80",
-  },
-];
+
 
 const inquiryTypes = [
   "Wholesale Partnership",
@@ -551,60 +529,7 @@ export default function ContactPage() {
       </section>
 
       {/* Office Locations */}
-      <section className="offices-section py-16 md:py-20 bg-linear-to-b from-[#D5CE95]/5 to-transparent">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 md:mb-12">
-            <Badge className="bg-[#D5CE95]/20 text-[#8B8455] border-[#D5CE95] mb-4">
-              <Globe className="w-3 h-3 mr-1" />
-              Global Presence
-            </Badge>
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal mb-4">
-              Our <span className="text-gradient-gold">Offices</span>
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg">
-              With offices across three continents, we are well-positioned to serve 
-              beauty professionals worldwide.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {officeLocations.map((office, index) => (
-              <motion.div
-                key={index}
-                className="office-card group"
-                whileHover={{ y: -8 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-[#D5CE95]/10 hover:shadow-xl hover:border-[#D5CE95]/30 transition-all duration-500">
-                  <div className="relative h-48 overflow-hidden">
-                    <Image
-                      src={office.image || "/placeholder.svg"}
-                      alt={office.city}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-linear-to-t from-charcoal/60 to-transparent" />
-                    <div className="absolute bottom-4 left-4">
-                      <h3 className="font-serif text-2xl text-white">{office.city}</h3>
-                      <p className="text-white/80 text-sm">{office.country}</p>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-start gap-3 mb-4">
-                      <MapPin className="w-5 h-5 text-[#D5CE95] shrink-0 mt-0.5" />
-                      <p className="text-muted-foreground text-sm">{office.address}</p>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Phone className="w-5 h-5 text-[#D5CE95]" />
-                      <p className="text-charcoal font-medium">{office.phone}</p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* Map Section */}
       <section className="py-16 md:py-20">
@@ -631,7 +556,7 @@ export default function ContactPage() {
                   size="lg"
                   className="bg-[#D5CE95] hover:bg-[#C4B87A] text-charcoal rounded-full px-6 sm:px-8"
                 >
-                  <Link href="/shop">
+                  <Link href="/shops">
                     <Sparkles className="w-4 h-4 mr-2" />
                     Browse Products
                   </Link>
