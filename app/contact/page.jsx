@@ -58,7 +58,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Headquarters",
-    details: ["123 Beauty Boulevard", "Lebanon, IN 46052"],
+    details: [ "Lebanon, IN 46052"],
     action: "https://maps.google.com",
     actionText: "Get Directions",
   },
