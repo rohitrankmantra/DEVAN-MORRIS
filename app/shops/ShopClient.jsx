@@ -386,7 +386,7 @@ export default function ShopClient() {
                 }`}
               >
                 {sortedProducts.map((product) => (
-                  <Link href={`/shops/${product.id}`} key={product.id} className="block">
+                  <Link href={`/shop/${product.id}`} key={product.id} className="block">
                     <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#D5CE95]/10 hover:shadow-xl hover:border-[#D5CE95]/30 transition-all duration-500">
                       {/* Image */}
                       <div className="relative aspect-square overflow-hidden bg-linear-to-br from-[#D5CE95]/5 to-transparent">

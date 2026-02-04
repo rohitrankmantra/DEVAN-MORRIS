@@ -165,7 +165,7 @@ export default function MedSpaSection() {
                 </div>
 
                 <Link
-                  href="/shops?category=MedSpa%20Equipment"
+                  href="/shop?category=MedSpa%20Equipment"
                   className="group/btn flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-luxe-gold transition-all"
                 >
                   View Details

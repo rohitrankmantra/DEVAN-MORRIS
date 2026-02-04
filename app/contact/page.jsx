@@ -44,14 +44,14 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    details: [ "+1 (800) 555-0199"],
-    action: "tel:+18005550199",
+    details: ["+1 (888) 555-0123", "+1 (888) 555-0124"],
+    action: "tel:+18885550123",
     actionText: "Call Now",
   },
   {
     icon: Mail,
     title: "Email",
-    details: ["wholesale@luxebeauty.com"],
+    details: ["wholesale@luxebeauty.com", "support@luxebeauty.com"],
     action: "mailto:wholesale@luxebeauty.com",
     actionText: "Send Email",
   },
@@ -631,7 +631,7 @@ export default function ContactPage() {
                   size="lg"
                   className="bg-[#D5CE95] hover:bg-[#C4B87A] text-charcoal rounded-full px-6 sm:px-8"
                 >
-                  <Link href="/shops">
+                  <Link href="/shop">
                     <Sparkles className="w-4 h-4 mr-2" />
                     Browse Products
                   </Link>

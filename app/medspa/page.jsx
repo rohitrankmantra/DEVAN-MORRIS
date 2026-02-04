@@ -36,7 +36,7 @@ export default function MedSpaPage() {
                 <Link href="/contact" className="rounded-full bg-linear-gold px-6 py-3 text-center font-semibold text-charcoal hover:shadow-lg transition-shadow">
                   Request Catalog
                 </Link>
-                <Link href="/shops?category=MedSpa%20Equipment" className="rounded-full border border-luxe-gold px-6 py-3 text-center text-charcoal hover:bg-luxe-gold/10 transition-colors">
+                <Link href="/shop?category=MedSpa%20Equipment" className="rounded-full border border-luxe-gold px-6 py-3 text-center text-charcoal hover:bg-luxe-gold/10 transition-colors">
                   Browse Equipment
                 </Link>
               </div>
