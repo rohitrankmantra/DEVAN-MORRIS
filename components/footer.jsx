@@ -81,7 +81,7 @@ export default function Footer() {
     <footer className="bg-charcoal">
       {/* Main Footer */}
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-12 lg:py-20">
-        <div className="grid gap-12 lg:grid-cols-5 lg:gap-8">
+        <div className="grid gap-12 lg:grid-cols-4 lg:gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block">
@@ -154,23 +154,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h4 className="font-serif text-sm font-semibold uppercase tracking-wider text-luxe-gold">
-              Support
-            </h4>
-            <ul className="mt-6 space-y-3">
-              {footerLinks.support.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="font-sans text-sm text-ivory/70 transition-colors hover:text-luxe-gold"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          
         </div>
 
         {/* Newsletter */}
