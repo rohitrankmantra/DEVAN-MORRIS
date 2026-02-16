@@ -290,26 +290,7 @@ export default function ContactPage() {
                 ))}
               </div>
 
-              {/* Social Links */}
-              <div className="pt-8 border-t border-[#D5CE95]/20">
-                <p className="text-sm text-muted-foreground mb-4">Follow us on social media</p>
-                <div className="flex gap-3">
-                  {[
-                    { icon: Instagram, href: "#" },
-                    { icon: Facebook, href: "#" },
-                    { icon: Twitter, href: "#" },
-                    { icon: Linkedin, href: "#" },
-                  ].map((social, index) => (
-                    <a
-                      key={index}
-                      href={social.href}
-                      className="w-10 h-10 rounded-full bg-[#D5CE95]/20 flex items-center justify-center text-[#8B8455] hover:bg-[#D5CE95] hover:text-charcoal transition-all duration-300"
-                    >
-                      <social.icon className="w-5 h-5" />
-                    </a>
-                  ))}
-                </div>
-              </div>
+          
             </div>
 
             {/* Form */}

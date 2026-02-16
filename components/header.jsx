@@ -60,18 +60,7 @@ export default function Header() {
             Wholesale Prices for Professionals
           </div>
 
-          {/* Social Links */}
-          <div className="flex items-center gap-3">
-            <a href="#" className="text-ivory/70 transition-colors hover:text-luxe-gold" aria-label="Instagram">
-              <FiInstagram className="h-3.5 w-3.5" />
-            </a>
-            <a href="#" className="text-ivory/70 transition-colors hover:text-luxe-gold" aria-label="Facebook">
-              <FiFacebook className="h-3.5 w-3.5" />
-            </a>
-            <a href="#" className="text-ivory/70 transition-colors hover:text-luxe-gold" aria-label="Twitter">
-              <FiTwitter className="h-3.5 w-3.5" />
-            </a>
-          </div>
+       
         </div>
       </div>
 

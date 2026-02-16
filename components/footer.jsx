@@ -100,21 +100,7 @@ export default function Footer() {
               worldwide with excellence.
             </p>
 
-            {/* Social Links */}
-            <div className="mt-8 flex gap-3">
-              {socialLinks.map((social) => (
-                <motion.a
-                  key={social.name}
-                  href={social.href}
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex h-11 w-11 items-center justify-center rounded-xl border border-ivory/20 text-ivory/70 transition-all duration-300 hover:border-luxe-gold hover:bg-luxe-gold hover:text-charcoal"
-                  aria-label={social.name}
-                >
-                  <social.icon className="h-5 w-5" />
-                </motion.a>
-              ))}
-            </div>
+          
           </div>
 
           {/* Links Columns */}
